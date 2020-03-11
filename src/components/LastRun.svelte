@@ -1,32 +1,16 @@
 <script>
-  import {onMount} from 'svelte';
-
-  const dev = process.env.NODE_ENV === 'development';
-
-  let promise = new Promise(() => {});
-
-  onMount(() => {
-    promise = getData();
-  });
-
-  async function getData() {
-    const r = await fetch('/stldevs-api/last-run');
-    return await r.json();
-  }
+  import { stores } from '@sapper/app';
+  const { session } = stores();
 </script>
 
 <style>
   em {
-    float: right;
+    position: absolute;
+    right: 1em;
+    top: -1.5rem;
   }
 </style>
 
 <em>
-{#await promise}
-  Loading last run data...
-{:then lastRun}
-  Last run {lastRun.split('T')[0]}
-{:catch e}
-  {e.message}
-{/await}
+  Last run {$session.lastRun.split('T')[0]}
 </em>

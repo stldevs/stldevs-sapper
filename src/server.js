@@ -20,7 +20,11 @@ if (dev) {
 server.use(
 	compression({ threshold: 0 }),
 	sirv('static', { dev }),
-	sapper.middleware()
+	sapper.middleware({
+		session: (req, res) => ({
+			user: req.user
+		})
+	})
 );
 
 server.listen(PORT, err => {

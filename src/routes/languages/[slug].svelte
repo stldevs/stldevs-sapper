@@ -4,7 +4,11 @@
     let { p } = page.query;
 
     slug = slug.replace('#', '%23');
-    p = Number(p);
+    p = Number(p || 0);
+
+    if (session.langs && session.langs[slug + p]) {
+      return { response: session.langs[slug+p], slug, p};
+    }
 
     let url = `/stldevs-api/lang/${slug}`;
     if (p) {
@@ -13,13 +17,23 @@
     const res = await this.fetch(url);
     const response = await res.json();
 
+    if (!res.ok) {
+      return this.error(res.status, response);
+    }
+
+    if (session.langs) {
+      session.langs[slug + p] = response
+    } else {
+      const key = slug + p;
+      session.langs = {key: response}
+    }
+
     return { response, slug, p };
   }
 </script>
 
 <script>
   import FaStar from 'svelte-icons/fa/FaStar.svelte'
-  import Hero from "../../components/Hero.svelte";
   import { goto } from '@sapper/app';
 
   export let response;
@@ -49,8 +63,6 @@
 <svelte:head>
   <title>STL Devs | {slug}</title>
 </svelte:head>
-
-<Hero title={slug}/>
 
 <article>
   <h3 ref="top">{response.count} {slug} users in St. Louis</h3>
