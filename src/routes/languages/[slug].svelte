@@ -3,14 +3,13 @@
     let { slug } = page.params;
     let { p } = page.query;
 
-    slug = slug.replace('#', '%23');
     p = Number(p || 0);
 
     if (session.langs && session.langs[slug + p]) {
       return { response: session.langs[slug+p], slug, p};
     }
 
-    let url = `/stldevs-api/lang/${slug}`;
+    let url = `/stldevs-api/lang/${encodeURIComponent(slug)}`;
     if (p) {
       url += `?offset=${p*25}&limit=25`
     }
@@ -50,13 +49,13 @@
   async function next() {
     page++;
     document.getElementsByTagName('header')[0].scrollIntoView({behavior: 'smooth'});
-    await goto(`/languages/${slug}?p=${page}`)
+    await goto(`/languages/${encodeURIComponent(slug)}?p=${page}`)
   }
 
   async function prev() {
     page--;
     document.getElementsByTagName('header')[0].scrollIntoView({behavior: 'smooth'});
-    await goto(`/languages/${slug}?p=${page}`)
+    await goto(`/languages/${encodeURIComponent(slug)}?p=${page}`)
   }
 </script>
 

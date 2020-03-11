@@ -57,7 +57,7 @@
   <div class="card">
     <div class="inner">
       <h3>
-        <a href="/languages/{Language}">
+        <a href="/languages/{encodeURIComponent(Language)}">
           {Language}
         </a>
       </h3>
