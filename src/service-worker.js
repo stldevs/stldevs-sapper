@@ -40,7 +40,7 @@ self.addEventListener('fetch', event => {
 	if (!url.protocol.startsWith('http')) return;
 
 	// ignore dev server requests
-	if (url.hostname === self.location.hostname && url.port !== self.location.port && url.port !== '8283') {
+	if (url.hostname === self.location.hostname && url.port !== self.location.port) {
 		return;
 	}
 
