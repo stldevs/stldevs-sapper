@@ -2,11 +2,7 @@
   const dev = process.env.NODE_ENV === 'development';
 
   export async function preload(page, session) {
-    let url = 'https://stldevs.com/stldevs-api/toplangs';
-    if (dev) {
-      url = 'http://localhost:8283/stldevs-api/toplangs';
-    }
-    const r = await this.fetch(url);
+    const r = await this.fetch('/stldevs-api/toplangs');
     const response = await r.json();
     return {response};
   }
@@ -39,7 +35,7 @@
       {#each response.langs as {Language, Count, Users}}
         <tr>
           <td>
-            <a href="/languages/{Language}}">
+            <a href="/languages/{Language}">
                 {Language}
             </a>
           </td>
