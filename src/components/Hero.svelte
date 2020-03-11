@@ -10,9 +10,9 @@
 </style>
 
 <script>
-  export let title;
+  export let title = 'St. Louis Developers'
 </script>
 
 <header class="header">
-  <h2>{ title || 'St. Louis Developers' }</h2>
+  <h2>{ title }</h2>
 </header>

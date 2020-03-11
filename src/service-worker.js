@@ -40,7 +40,9 @@ self.addEventListener('fetch', event => {
 	if (!url.protocol.startsWith('http')) return;
 
 	// ignore dev server requests
-	if (url.hostname === self.location.hostname && url.port !== self.location.port) return;
+	if (url.hostname === self.location.hostname && url.port !== self.location.port && url.port !== '8283') {
+		return;
+	}
 
 	// always serve static files and bundler-generated assets from cache
 	if (url.host === self.location.host && cached.has(url.pathname)) {
@@ -58,7 +60,9 @@ self.addEventListener('fetch', event => {
 	}
 	*/
 
-	if (event.request.cache === 'only-if-cached') return;
+	if (event.request.cache === 'only-if-cached') {
+		return;
+	}
 
 	// for everything else, try the network first, falling back to
 	// cache if the user is offline. (If the pages never change, you
@@ -67,16 +71,14 @@ self.addEventListener('fetch', event => {
 		caches
 			.open(`offline${timestamp}`)
 			.then(async cache => {
-				try {
-					const response = await fetch(event.request);
-					cache.put(event.request, response.clone());
+				let response = await cache.match(event.request);
+				if (response) {
 					return response;
-				} catch(err) {
-					const response = await cache.match(event.request);
-					if (response) return response;
-
-					throw err;
 				}
+
+				response = await fetch(event.request);
+				cache.put(event.request, response.clone());
+				return response;
 			})
 	);
 });
