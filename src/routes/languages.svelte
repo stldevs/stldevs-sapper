@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>Languages</title>
+  <title>STL Devs | Languages</title>
 </svelte:head>
 
 <Hero title="Languages"/>

@@ -6,7 +6,7 @@
 </style>
 
 <svelte:head>
-	<title>St. Louis Developers</title>
+	<title>STL Devs</title>
 </svelte:head>
 
 <Hero/>
