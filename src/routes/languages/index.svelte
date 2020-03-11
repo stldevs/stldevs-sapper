@@ -9,8 +9,8 @@
 </script>
 
 <script>
-  import Hero from "../components/Hero.svelte";
-  import LastRun from "../components/LastRun.svelte";
+  import Hero from "../../components/Hero.svelte";
+  import LastRun from "../../components/LastRun.svelte";
 
   export let response;
 </script>
