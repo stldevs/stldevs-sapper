@@ -10,11 +10,7 @@
   });
 
   async function getData() {
-    let url = 'https://stldevs.com/stldevs-api/last-run';
-    if (dev) {
-      url = 'http://localhost:8283/stldevs-api/last-run';
-    }
-    const r = await fetch(url);
+    const r = await fetch('/stldevs-api/last-run');
     return await r.json();
   }
 </script>

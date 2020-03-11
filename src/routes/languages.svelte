@@ -19,31 +19,30 @@
   <title>Languages</title>
 </svelte:head>
 
-<div class="page">
-  <Hero title="Languages"/>
-  <article>
-    <LastRun/>
-    <table>
-      <thead>
+<Hero title="Languages"/>
+
+<article>
+  <LastRun/>
+  <table>
+    <thead>
+    <tr>
+      <th>Language</th>
+      <th>Repos</th>
+      <th>Users</th>
+    </tr>
+    </thead>
+    <tbody>
+    {#each response.langs as {Language, Count, Users}}
       <tr>
-        <th>Language</th>
-        <th>Repos</th>
-        <th>Users</th>
+        <td>
+          <a href="/languages/{Language}">
+              {Language}
+          </a>
+        </td>
+        <td>{Count}</td>
+        <td>{Users}</td>
       </tr>
-      </thead>
-      <tbody>
-      {#each response.langs as {Language, Count, Users}}
-        <tr>
-          <td>
-            <a href="/languages/{Language}">
-                {Language}
-            </a>
-          </td>
-          <td>{Count}</td>
-          <td>{Users}</td>
-        </tr>
-      {/each}
-      </tbody>
-    </table>
-  </article>
-</div>
+    {/each}
+    </tbody>
+  </table>
+</article>
