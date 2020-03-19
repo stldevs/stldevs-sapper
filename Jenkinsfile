@@ -14,8 +14,9 @@ pipeline {
                 sh '''
 seconds=`date +"%s"`
 tarfile=new-$seconds.tar.gz
-tar -cvzf $tarfile .
+tar -cvzf /tmp/$tarfile .
 scp $tarfile deploy@stldevs.com:~
+rm /tmp/$tarfile
 ssh deploy@stldevs.com << EOF
   rm -rf /opt/stldevs-svelte/*
   mv $tarfile /opt/stldevs-svelte
