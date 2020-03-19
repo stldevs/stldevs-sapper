@@ -70,9 +70,7 @@
   <div>
     <a href="/developers/{lang.Owner}">{lang.Owner}</a>
     has <b>{lang.Count}</b>
-    <div class="icon">
-      <FaStar/>
-    </div>
+    <i><FaStar/></i>
     on {slug} repos, with popular ones like:
     <ul>
       {#each lang.Repos as r}

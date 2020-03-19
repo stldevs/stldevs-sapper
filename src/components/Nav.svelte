@@ -54,7 +54,7 @@
     display: flex;
   }
 
-  .icon {
+  i {
     padding-right: 1em;
   }
 </style>
@@ -62,39 +62,27 @@
 <nav>
   <h1 id="thing">STL DEVS</h1>
   <a href="/" aria-current='{segment === undefined ? "page" : undefined}'>
-    <div class="icon">
-      <FaHome/>
-    </div>
+    <i><FaHome/></i>
     <span>Home</span>
   </a>
   <a href="/languages" aria-current='{segment === "languages" ? "page" : undefined}' rel="prefetch">
-    <div class="icon">
-      <FaCode/>
-    </div>
+    <i><FaCode/></i>
     <span>Languages</span>
   </a>
   <a href="/developers" aria-current='{segment === "developers" ? "page" : undefined}'>
-    <div class="icon">
-      <FaUsers/>
-    </div>
+    <i><FaUsers/></i>
     <span>Developers</span>
   </a>
   <a href="/organizations" aria-current='{segment === "organizations" ? "page" : undefined}'>
-    <div class="icon">
-      <FaSitemap/>
-    </div>
+    <i><FaSitemap/></i>
     <span>Organizations</span>
   </a>
   <a href="/search" aria-current='{segment === "search" ? "page" : undefined}'>
-    <div class="icon">
-      <FaSearch/>
-    </div>
+    <i><FaSearch/></i>
     <span>Search</span>
   </a>
   <a href="/you" aria-current='{segment === "you" ? "page" : undefined}'>
-    <div class="icon">
-      <FaSmile/>
-    </div>
+    <i><FaSmile/></i>
     <span>You</span>
   </a>
 </nav>
