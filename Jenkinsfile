@@ -12,17 +12,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-seconds=`date +"%s"`
-tarfile=new-$seconds.tar.gz
-tar -cvzf /tmp/$tarfile .
-scp /tmp/$tarfile deploy@stldevs.com:~
-rm /tmp/$tarfile
 ssh deploy@stldevs.com << EOF
-  rm -rf /opt/stldevs-svelte/*
-  mv $tarfile /opt/stldevs-svelte
   cd /opt/stldevs-svelte
-  tar -zxf $tarfile
-  rm $tarfile
+  git pull
+  npm ci
+  npm run build
   systemctl restart stldevs-svelte
 EOF
 '''
