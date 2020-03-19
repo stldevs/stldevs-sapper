@@ -14,7 +14,7 @@
   export let response;
 
   import Hero from "../../components/Hero.svelte";
-  import DiGitBranch from 'svelte-icons/di/DiGitBranch.svelte'
+  import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
   import FaStar from 'svelte-icons/fa/FaStar.svelte'
   import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
   import FaBook from 'svelte-icons/fa/FaBook.svelte'
@@ -78,16 +78,16 @@
         </a>
       </h3>
       <ul>
-        <li>
+        <li title="stars">
           <i><FaStar/></i> {dev.Stars}
         </li>
-        <li>
-          <i><DiGitBranch/></i> {dev.Forks}
+        <li title="forks">
+          <i><FaCodeBranch/></i> {dev.Forks}
         </li>
-        <li>
+        <li title="followers">
           <i><FaUserCircle/></i> {dev.Followers}
         </li>
-        <li>
+        <li title="repositories">
           <i><FaBook/></i> {dev.PublicRepos}
         </li>
       </ul>

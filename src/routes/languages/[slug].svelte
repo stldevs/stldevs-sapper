@@ -78,7 +78,7 @@
         <a href="https://github.com/{lang.Owner}/{r.Name}" target="_blank">
           {r.Name}
         </a>
-        (<b>{r.StargazersCount}</b> <span class="icon"><FaStar/></span>)
+        (<b>{r.StargazersCount}</b> <i><FaStar/></i>)
         <small>{r.Description || '(No description)'}</small>
       </li>
       {/each}
