@@ -17,7 +17,7 @@ ssh deploy@stldevs.com << EOF
   git pull
   npm ci
   npm run build
-  systemctl restart stldevs-svelte
+  sudo service stldevs-svelte restart
 EOF
 '''
             }
