@@ -9,13 +9,11 @@ const dev = NODE_ENV === 'development';
 
 const server = polka();
 
-if (dev) {
-	server.use(createProxyMiddleware('/stldevs-api', {
-		changeOrigin: true,
-		logLevel: 'debug',
-		target: 'https://stldevs.com'
-	}));
-}
+server.use(createProxyMiddleware('/stldevs-api', {
+	changeOrigin: true,
+	logLevel: 'debug',
+	target: dev ? 'https://stldevs.com' : 'http://127.0.0.1:8080'
+}));
 
 server.use(
 	compression({ threshold: 0 }),
