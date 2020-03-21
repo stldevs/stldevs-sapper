@@ -12,7 +12,7 @@ const server = polka();
 server.use(createProxyMiddleware('/stldevs-api', {
 	changeOrigin: true,
 	logLevel: 'debug',
-	target: dev ? 'https://stldevs.com' : 'http://127.0.0.1:8080'
+	target: 'https://stldevs.com'
 }));
 
 server.use(
@@ -20,6 +20,7 @@ server.use(
 	sirv('static', { dev }),
 	sapper.middleware({
 		session: (req, res) => ({
+			dev,
 			user: req.user
 		})
 	})
