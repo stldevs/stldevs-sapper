@@ -1,11 +1,11 @@
 <script context="module">
   export async function preload(page, session) {
-    if (session.topdevs) {
-      return {response: session.topdevs}
+    if (session.toporgs) {
+      return {response: session.toporgs}
     }
-    const r = await this.fetch('/stldevs-api/devs');
+    const r = await this.fetch('/stldevs-api/orgs');
     const response = await r.json();
-    session.topdevs = response;
+    session.toporgs = response;
     return {response};
   }
 </script>
@@ -18,8 +18,8 @@
 </script>
 
 <svelte:head>
-  <title>STL Devs | Developers</title>
+  <title>STL Devs | Organizations</title>
 </svelte:head>
 
-<Hero title="Top Devs in St. Louis" lastrun="true"/>
-<Listing response={response} route="developers"/>
+<Hero title="Top Orgs in St. Louis" lastrun="true"/>
+<Listing response={response} route="organizations"/>
