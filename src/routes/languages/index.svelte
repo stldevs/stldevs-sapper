@@ -6,7 +6,7 @@
     const r = await this.fetch('/stldevs-api/toplangs');
     const response = await r.json();
     session.toplangs = response;
-    return {response.slice(0, 50)};
+    return {response};
   }
 </script>
 
@@ -67,7 +67,7 @@
   <div class="card">
 
     <a href="/languages/{encodeURIComponent(Language)}">
-      <img src="/langs/{encodeURIComponent(Language)}.svg" alt="{Language} logo">
+      <img src="/langs/{encodeURIComponent(Language)}.svg" alt="{Language} logo" onerror="this.src = '/langs/Unknown.svg';">
     </a>
     <div class="inner">
       <h3>
