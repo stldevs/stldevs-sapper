@@ -6,7 +6,7 @@
       return { response: session.devs[slug], slug};
     }
 
-    let url = `/stldevs-api/devs/${slug}`;
+    let url = `/stldevs-api/orgs/${slug}`;
     const res = await this.fetch(url);
     const response = await res.json();
 
@@ -34,4 +34,4 @@
   <title>STL Devs | {slug}</title>
 </svelte:head>
 
-<Profile {response} {slug}/>
+<Profile {response} {slug} isOrg="{true}"/>
