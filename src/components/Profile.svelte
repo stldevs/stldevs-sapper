@@ -20,6 +20,7 @@
     import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
     import FaBook from 'svelte-icons/fa/FaBook.svelte'
     import FaBookmark from 'svelte-icons/fa/FaBookmark.svelte'
+    import FaExternalLinkSquareAlt from 'svelte-icons/fa/FaExternalLinkSquareAlt.svelte'
 </script>
 
 <article>
@@ -34,7 +35,7 @@
             <!--      </li>-->
             <li><a href="https://github.com/{response.User.login}" target="_blank">
                 {response.User.name || response.User.login}
-                <icon name="external-link-alt" class="sup" scale="0.75"/>
+                <i class="sup"><FaExternalLinkSquareAlt/></i>
             </a></li>
             <li>{response.User.blog || ''}</li>
             <li>{response.User.email || ''}</li>

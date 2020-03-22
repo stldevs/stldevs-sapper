@@ -168,3 +168,20 @@ i {
 	width: 16px;
 	height: 16px;
 }
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}

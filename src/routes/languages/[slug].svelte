@@ -31,6 +31,23 @@
   }
 </script>
 
+<style>
+  .page-of {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+  }
+  ul {
+    margin-left: 1rem;
+    margin-bottom: .75rem;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid #c9c9c9;
+  }
+  li {
+    margin-top: .5rem;
+  }
+</style>
+
 <script>
   import FaStar from 'svelte-icons/fa/FaStar.svelte'
   import { goto } from '@sapper/app';
@@ -68,10 +85,7 @@
   <p class="page-of">Page {page} of {pages}</p>
   {#each response.languages as lang}
   <div>
-    <a href="/developers/{lang.Owner}">{lang.Owner}</a>
-    has <b>{lang.Count}</b>
-    <i><FaStar/></i>
-    on {slug} repos, with popular ones like:
+    <a href="/developers/{lang.Owner}">{lang.Owner}</a> has <b>{lang.Count}</b> <i><FaStar/></i> from {slug} repos:
     <ul>
       {#each lang.Repos as r}
       <li>
@@ -99,11 +113,3 @@
     </div>
   </div>
 </article>
-
-<style>
-  .page-of {
-    text-align: right;
-    padding: 0;
-    margin: 0;
-  }
-</style>

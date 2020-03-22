@@ -12,6 +12,10 @@
         border-radius: 4px;
         display: flex;
         flex-direction: column;
+        transition: all 0.6s cubic-bezier(.25,.8,.25,1);
+    }
+    .card:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
     .inner {
         padding: .5em;
@@ -27,9 +31,17 @@
         width: 100%
     }
     ul {
+        margin: .5rem 0 0;
         padding-left: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: .5rem;
+        text-align: center;
+        color: #5d5d5d;
+        font-size: .85rem;
+    }
+    ul.three-wide {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 </style>
 
@@ -55,16 +67,18 @@
                         {dev.Name || dev.Login}
                     </a>
                 </h3>
-                <ul>
+                <ul class={route === 'organizations' ? 'three-wide' : ''}>
                     <li title="stars">
                         <i><FaStar/></i> {dev.Stars}
                     </li>
                     <li title="forks">
                         <i><FaCodeBranch/></i> {dev.Forks}
                     </li>
+                    {#if route === 'developers'}
                     <li title="followers">
                         <i><FaUserCircle/></i> {dev.Followers}
                     </li>
+                    {/if}
                     <li title="repositories">
                         <i><FaBook/></i> {dev.PublicRepos}
                     </li>

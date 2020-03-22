@@ -49,14 +49,18 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  span {
-    font-size: .90rem;
-    color: #505050;
-  }
   img {
     object-fit: cover;
     border-radius: 4px 4px 0 0;
     height: 100%;
+  }
+  ul {
+    display: flex;
+    text-align: center;
+  }
+  li {
+    font-size: .90rem;
+    color: #505050;
   }
 </style>
 
@@ -75,10 +79,10 @@
           {Language}
         </a>
       </h3>
-      <div class="flex">
-        <span title="repositories" class="flex-1"><i><FaBook/></i> {Count}</span>
-        <span title="users"><i><FaUserCircle/></i> {Users}</span>
-      </div>
+      <ul>
+        <li title="repositories" class="flex-1"><i><FaBook/></i> {Count}</li>
+        <li title="users"><i><FaUserCircle/></i> {Users}</li>
+      </ul>
     </div>
   </div>
   {/each}
