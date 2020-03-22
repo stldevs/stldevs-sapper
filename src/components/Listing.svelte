@@ -31,17 +31,23 @@
         width: 100%
     }
     ul {
-        margin: .5rem 0 0;
+        margin: .5rem 0 0 1.5rem;
         padding-left: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: .5rem;
         text-align: center;
-        color: #5d5d5d;
+        opacity: .6;
         font-size: .85rem;
     }
     ul.three-wide {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+    li {
+        display: flex;
+    }
+    span {
+        margin-left: .25rem;
     }
 </style>
 
@@ -69,18 +75,22 @@
                 </h3>
                 <ul class={route === 'organizations' ? 'three-wide' : ''}>
                     <li title="stars">
-                        <i><FaStar/></i> {dev.Stars}
+                        <i><FaStar/></i>
+                        <span>{dev.Stars}</span>
                     </li>
                     <li title="forks">
-                        <i><FaCodeBranch/></i> {dev.Forks}
+                        <i><FaCodeBranch/></i>
+                        <span>{dev.Forks}</span>
                     </li>
                     {#if route === 'developers'}
                     <li title="followers">
-                        <i><FaUserCircle/></i> {dev.Followers}
+                        <i><FaUserCircle/></i>
+                        <span>{dev.Followers}</span>
                     </li>
                     {/if}
                     <li title="repositories">
-                        <i><FaBook/></i> {dev.PublicRepos}
+                        <i><FaBook/></i>
+                        <span>{dev.PublicRepos}</span>
                     </li>
                 </ul>
             </div>

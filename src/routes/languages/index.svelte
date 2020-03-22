@@ -44,6 +44,7 @@
     text-overflow: ellipsis;
   }
   h3 {
+    font-weight: normal;
     margin: 0 0 0.5rem;
     white-space: nowrap;
     overflow: hidden;
@@ -56,11 +57,14 @@
   }
   ul {
     display: flex;
-    text-align: center;
+    opacity: .6;
   }
   li {
+    display: flex;
     font-size: .90rem;
-    color: #505050;
+  }
+  span {
+    margin-left: .25rem;
   }
 </style>
 
@@ -71,7 +75,7 @@
   <div class="card">
 
     <a href="/languages/{encodeURIComponent(Language)}">
-      <img src="/langs/{encodeURIComponent(Language)}.svg" alt="{Language} logo" onerror="this.src = '/langs/Unknown.svg';">
+      <img src="/langs/{encodeURIComponent(Language)}.svg" alt="{Language} logo" onerror="this.src = '/langs/Unknown.svg'">
     </a>
     <div class="inner">
       <h3>
@@ -80,8 +84,14 @@
         </a>
       </h3>
       <ul>
-        <li title="repositories" class="flex-1"><i><FaBook/></i> {Count}</li>
-        <li title="users"><i><FaUserCircle/></i> {Users}</li>
+        <li title="repositories" class="flex-1">
+          <i><FaBook/></i>
+          <span>{Count}</span>
+        </li>
+        <li title="users">
+          <i><FaUserCircle/></i>
+          <span>{Users}</span>
+        </li>
       </ul>
     </div>
   </div>
