@@ -29,7 +29,7 @@
         if (session.search) {
             session.search[q] = {users, repos}
         } else {
-            session.langs = {q: {users, repos} }
+            session.search = {q: {users, repos} }
         }
 
         return { users, repos, q };
@@ -41,7 +41,8 @@
     export let q = '';
 
     import Hero from "../components/Hero.svelte";
-    import { goto } from '@sapper/app';
+    import {goto} from '@sapper/app';
+    import Listing from "../components/Listing.svelte";
 
     async function search() {
         if (q === '') {
@@ -60,18 +61,6 @@
     input {
         font-size: 16pt;
     }
-    .center {
-        display: flex;
-        justify-content: center;
-    }
-    .profile {
-        padding-top: .5em;
-        display: flex;
-        align-items: center;
-    }
-    .deets {
-        flex-grow: 1;
-    }
     h4 {
         margin: 0;
     }
@@ -89,44 +78,28 @@
     </button>
 </div>
 
-{#if users && repos}
-<div>
-    <p class="center">{users.length} users and {repos.length} repos</p>
-    <article>
-        <h3>Users</h3>
-        <section>
-            {#each users as user}
-            <div class="profile">
-                <a href="/developers/{user.Login}">
-                    <img class="avatar" src={user.AvatarURL} alt="{user.Login}'s photo">
-                </a>
-                <ul class="deets">
-                    <li><a href="/developers/{user.Login}">{user.Name || user.Login}</a></li>
-                    <li>{user.Blog}</li>
-                    <li>{user.Email}</li>
-                    <li>{user.Followers} followers</li>
-                    <li>{user.PublicRepos} repos</li>
-                    <li>{user.PublicGists} gists</li>
-                </ul>
-            </div>
-            {/each}
-        </section>
-    </article>
-    <article class="repos" v-if="repos.results.length">
-        <h3>Repositories</h3>
-        {#each repos as repo}
-        <section>
-            <div class="flex">
-                <h4 class="flex-1">
-                    {repo.Name} (by <a href="/developers/{repo.Owner}">{repo.Owner}</a>)
-                </h4>
-                <span>{repo.StargazersCount} <icon name="star"></icon> {repo.ForksCount} <icon name="fork"></icon></span>
-            </div>
-            <em>{repo.Description}</em>
-        </section>
-        {/each}
-    </article>
-</div>
-{:else}
+{#if !users && !repos}
     <p class="center">Search for users or repositories</p>
+{/if}
+
+{#if users}
+    <p class="center">{users.length} users</p>
+    <Listing response={users}/>
+{/if}
+
+{#if repos}
+<p class="center">{repos.length} repos</p>
+<article class="repos">
+    {#each repos as repo}
+    <section>
+        <div class="flex">
+            <h4 class="flex-1">
+                {repo.Name} (by <a href="/developers/{repo.Owner}">{repo.Owner}</a>)
+            </h4>
+            <span>{repo.StargazersCount} <icon name="star"></icon> {repo.ForksCount} <icon name="fork"></icon></span>
+        </div>
+        <em>{repo.Description}</em>
+    </section>
+    {/each}
+</article>
 {/if}

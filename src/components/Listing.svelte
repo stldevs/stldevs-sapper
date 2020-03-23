@@ -11,11 +11,10 @@
     import Dev from "./Dev.svelte";
 
     export let response;
-    export let route;
 </script>
 
 <section>
     {#each response as dev}
-        <Dev {dev} {route}/>
+        <Dev {dev}/>
     {/each}
 </section>

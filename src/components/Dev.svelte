@@ -47,7 +47,7 @@
 
 <script>
     export let dev;
-    export let route;
+    $: route = dev.Type === 'User' ? 'developers' : 'organizations';
 
     import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
