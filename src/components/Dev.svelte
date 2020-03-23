@@ -15,6 +15,7 @@
         padding: .5em;
     }
     h3 {
+        font-weight: normal;
         margin: 0;
         white-space: nowrap;
         overflow: hidden;
