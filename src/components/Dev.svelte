@@ -40,8 +40,9 @@
 
 <script>
     export let dev;
+    export let route;
 
-    const route = dev.Type === 'User' ? 'developers' : 'organizations';
+    $: r = route ? route : dev.Type === 'User' ? 'developers' : 'organizations';
 
     import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
@@ -50,12 +51,12 @@
 </script>
 
 <div class="card">
-    <a href="/{route}/{dev.Login}">
+    <a href="/{r}/{dev.Login}">
         <img src={dev.AvatarURL || dev.AvatarUrl} alt="{dev.Login}'s photo">
     </a>
     <div class="inner">
         <h3>
-            <a href="/{route}/{dev.Login}">
+            <a href="/{r}/{dev.Login}">
                 {dev.Name || dev.Login}
             </a>
         </h3>

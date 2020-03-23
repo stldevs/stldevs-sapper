@@ -22,4 +22,4 @@
 </svelte:head>
 
 <Hero title="Top Devs in St. Louis" lastrun="true"/>
-<Listing response={response}/>
+<Listing response={response} route="developers"/>
