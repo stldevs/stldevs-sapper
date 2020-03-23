@@ -1,5 +1,8 @@
 <script context="module">
   export async function preload(page, session) {
+    if (session.lastRun) {
+      return
+    }
     const r = await this.fetch('/stldevs-api/last-run');
     const lastRun = await r.json();
     if (!r.ok) {
