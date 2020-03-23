@@ -43,6 +43,8 @@
     import Hero from "../components/Hero.svelte";
     import {goto} from '@sapper/app';
     import Listing from "../components/Listing.svelte";
+    import FaStar from 'svelte-icons/fa/FaStar.svelte';
+    import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte';
 
     async function search() {
         if (q === '') {
@@ -96,7 +98,7 @@
             <h4 class="flex-1">
                 {repo.Name} (by <a href="/developers/{repo.Owner}">{repo.Owner}</a>)
             </h4>
-            <span>{repo.StargazersCount} <icon name="star"></icon> {repo.ForksCount} <icon name="fork"></icon></span>
+            <span><i><FaStar/></i>{repo.StargazersCount} <i><FaCodeBranch/></i> {repo.ForksCount}</span>
         </div>
         <em>{repo.Description}</em>
     </section>

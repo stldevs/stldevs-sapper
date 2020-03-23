@@ -47,7 +47,8 @@
 
 <script>
     export let dev;
-    $: route = dev.Type === 'User' ? 'developers' : 'organizations';
+
+    const route = dev.Type === 'User' ? 'developers' : 'organizations';
 
     import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
@@ -57,7 +58,7 @@
 
 <div class="card">
     <a href="/{route}/{dev.Login}">
-        <img src={dev.AvatarUrl} alt="{dev.Login}'s photo">
+        <img src={dev.AvatarURL || dev.AvatarUrl} alt="{dev.Login}'s photo">
     </a>
     <div class="inner">
         <h3>
@@ -66,14 +67,18 @@
             </a>
         </h3>
         <ul class={route === 'organizations' ? 'three-wide' : ''}>
+            {#if dev.Stars !== undefined}
             <li title="stars">
                 <i><FaStar/></i>
                 <span>{dev.Stars}</span>
             </li>
+            {/if}
+            {#if dev.Forks !== undefined}
             <li title="forks">
                 <i><FaCodeBranch/></i>
                 <span>{dev.Forks}</span>
             </li>
+            {/if}
             {#if route === 'developers'}
                 <li title="followers">
                     <i><FaUserCircle/></i>
