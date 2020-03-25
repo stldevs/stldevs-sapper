@@ -1,76 +1,70 @@
 <style>
-  .loader {
-    color: #000000;
-    font-size: 20px;
-    margin: 100px auto;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    position: relative;
-    text-indent: -9999em;
-    -webkit-animation: load4 1.3s infinite linear;
-    animation: load4 1.3s infinite linear;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
+  svg {
+    display: block;
+    margin: auto;
   }
-
-  @-webkit-keyframes load4 {
-    0%,
-    100% {
-      box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-    }
-    12.5% {
-      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-    }
-    25% {
-      box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-    }
-    37.5% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-    }
-    50% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-    }
-    62.5% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-    }
-    75% {
-      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-    }
-    87.5% {
-      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-    }
-  }
-
-  @keyframes load4 {
-    0%,
-    100% {
-      box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
-    }
-    12.5% {
-      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-    }
-    25% {
-      box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
-    }
-    37.5% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
-    }
-    50% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
-    }
-    62.5% {
-      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
-    }
-    75% {
-      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
-    }
-    87.5% {
-      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
-    }
-  }
-
 </style>
 
-<div class="loader">Loading...</div>
+<script>
+  export let color = '#2c3e50'
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+  <g transform="translate(80,50)">
+    <g transform="rotate(0)">
+      <circle cx="0" cy="0" r="6" fill={color} fill-opacity="1">
+        <animateTransform attributeName="transform" type="scale" begin="-0.875s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+        <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.875s"></animate>
+      </circle>
+    </g>
+  </g><g transform="translate(71.21320343559643,71.21320343559643)">
+  <g transform="rotate(45)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.875">
+      <animateTransform attributeName="transform" type="scale" begin="-0.75s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.75s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(50,80)">
+  <g transform="rotate(90)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.75">
+      <animateTransform attributeName="transform" type="scale" begin="-0.625s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.625s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(28.786796564403577,71.21320343559643)">
+  <g transform="rotate(135)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.625">
+      <animateTransform attributeName="transform" type="scale" begin="-0.5s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.5s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(20,50.00000000000001)">
+  <g transform="rotate(180)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.5">
+      <animateTransform attributeName="transform" type="scale" begin="-0.375s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.375s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(28.78679656440357,28.786796564403577)">
+  <g transform="rotate(225)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.375">
+      <animateTransform attributeName="transform" type="scale" begin="-0.25s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.25s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(49.99999999999999,20)">
+  <g transform="rotate(270)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.25">
+      <animateTransform attributeName="transform" type="scale" begin="-0.125s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.125s"></animate>
+    </circle>
+  </g>
+</g><g transform="translate(71.21320343559643,28.78679656440357)">
+  <g transform="rotate(315)">
+    <circle cx="0" cy="0" r="6" fill={color} fill-opacity="0.125">
+      <animateTransform attributeName="transform" type="scale" begin="0s" values="1.5 1.5;1 1" keyTimes="0;1" dur="1s" repeatCount="indefinite"></animateTransform>
+      <animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="0s"></animate>
+    </circle>
+  </g>
+</g>
+</svg>

@@ -1,6 +1,22 @@
 <script>
-  import { stores } from '@sapper/app';
-  const { session } = stores();
+  import {stores} from '@sapper/app';
+  import {onMount} from "svelte";
+  import Spinner from "./Spinner.svelte";
+
+  const {session} = stores();
+
+  onMount(() => {
+    if ($session.lastRun) {
+      return
+    }
+    fetch('/stldevs-api/last-run').then(async r => {
+      const lastRun = await r.json();
+      if (!r.ok) {
+        return
+      }
+      $session.lastRun = lastRun.split('T')[0]
+    })
+  })
 </script>
 
 <style>
@@ -12,5 +28,10 @@
 </style>
 
 <em>
-  Last run {$session.lastRun.split('T')[0]}
+  Last run
+  {#if $session.lastRun}
+    {$session.lastRun}
+  {:else}
+    <i><Spinner color="white"/></i>
+  {/if}
 </em>

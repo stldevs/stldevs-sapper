@@ -1,26 +1,12 @@
-<script context="module">
-  export async function preload(page, session) {
-    if (session.lastRun) {
-      return
-    }
-    const r = await this.fetch('/stldevs-api/last-run');
-    const lastRun = await r.json();
-    if (!r.ok) {
-      return this.error(r.status, lastRun)
-    }
-    session.lastRun = lastRun
-  }
-</script>
-
 <script>
   export let segment;
 
   import Nav from '../components/Nav.svelte';
-  import {stores} from '@sapper/app';
   import Spinner from "../components/Spinner.svelte";
   import Hero from "../components/Hero.svelte";
+  import {stores} from '@sapper/app';
 
-  const {preloading, page, session} = stores();
+  const {preloading, page} = stores();
 </script>
 
 <style>
@@ -28,6 +14,11 @@
     background: #ececec;
     width: 100%;
     height: 100%;
+  }
+  div {
+    width: 200px;
+    height: 200px;
+    margin: auto;
   }
 </style>
 
@@ -38,7 +29,7 @@
   <Hero title={$page.params.slug}/>
   {/if}
   {#if $preloading}
-    <Spinner/>
+    <div><Spinner/></div>
   {:else}
     <slot></slot>
   {/if}
