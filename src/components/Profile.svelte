@@ -13,7 +13,7 @@
 <script>
     export let response;
     export let slug;
-    export let isOrg;
+    export let isOrg = false;
 
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
     import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'

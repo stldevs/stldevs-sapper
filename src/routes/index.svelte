@@ -39,6 +39,6 @@
 
 	<p>
 		Contributions are welcome to <a href="http://github.com/jakecoffman/stldevs">the API</a> or <a
-			href="https://github.com/jakecoffman/stldevs-vue">the UI</a>! Filing issues is the easiest way to contribute.
+			href="https://github.com/jakecoffman/stldevs-sapper">the UI</a>! Filing issues is the easiest way to contribute.
 	</p>
 </article>

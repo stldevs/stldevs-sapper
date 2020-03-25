@@ -10,8 +10,8 @@
 <script>
     import Dev from "./Dev.svelte";
 
-    export let response;
-    export let route;
+    export let response = [];
+    export let route = null;
 </script>
 
 <section>
