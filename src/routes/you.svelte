@@ -1,9 +1,15 @@
 <script>
     import Hero from "../components/Hero.svelte";
 
-    let me
+    let me = null;
 
-    fetch(`/stldevs-api/me`).then(r => r.json()).then(u => me = u).catch(e => {})
+    fetch(`/stldevs-api/me`)
+        .then(async r => {
+            if (r.ok) {
+                me = await r.json()
+            }
+        })
+        .catch(e => {})
 
     async function logout() {
         await fetch(`/stldevs-api/logout`, {credentials: 'include'})
