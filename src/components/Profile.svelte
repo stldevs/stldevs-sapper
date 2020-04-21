@@ -25,7 +25,7 @@
 
 <article>
     <section class="profile">
-        <img class="avatar" src={response.User.avatar_url} alt="{response.User.Login}'s photo">
+        <img class="avatar" src={response.User.avatar_url} loading="lazy" alt="{response.User.Login}'s photo">
         <ul>
             <!--      <li v-if="me && me.IsAdmin">-->
             <!--        User is <span v-if="response.User.Hide">hidden</span><span v-else>visible</span>.-->

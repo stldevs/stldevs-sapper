@@ -52,7 +52,7 @@
 
 <div class="card">
     <a href="/{r}/{dev.Login}">
-        <img src={dev.AvatarURL || dev.AvatarUrl} alt="{dev.Login}'s photo">
+        <img src={dev.AvatarURL || dev.AvatarUrl} loading="lazy" alt="{dev.Login}'s photo">
     </a>
     <div class="inner">
         <h3>
