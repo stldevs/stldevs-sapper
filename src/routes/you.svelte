@@ -1,15 +1,18 @@
 <script>
     import Hero from "../components/Hero.svelte";
+    import {onMount} from "svelte";
 
     let me = null;
 
-    fetch(`/stldevs-api/me`)
-        .then(async r => {
-            if (r.ok) {
-                me = await r.json()
-            }
-        })
-        .catch(e => {})
+    onMount(() => {
+        fetch(`/stldevs-api/me`)
+            .then(async r => {
+                if (r.ok) {
+                    me = await r.json()
+                }
+            })
+            .catch(e => {})
+    })
 
     async function logout() {
         await fetch(`/stldevs-api/logout`, {credentials: 'include'})
