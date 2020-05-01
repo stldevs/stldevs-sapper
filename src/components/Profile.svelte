@@ -5,6 +5,10 @@
     section {
         margin-bottom: .75rem;
     }
+    .profile {
+        width: 60%;
+        margin: 0 auto;
+    }
     li {
         margin-bottom: .5rem;
     }
@@ -24,27 +28,29 @@
 </script>
 
 <article>
-    <section class="profile">
-        <img class="avatar" src={response.User.avatar_url} loading="lazy" alt="{response.User.Login}'s photo">
-        <ul>
-            <!--      <li v-if="me && me.IsAdmin">-->
-            <!--        User is <span v-if="response.User.Hide">hidden</span><span v-else>visible</span>.-->
-            <!--        <button @click="toggleHide(!response.User.Hide)">-->
-            <!--          Toggle-->
-            <!--        </button>-->
-            <!--      </li>-->
-            <li><a href="https://github.com/{response.User.login}" target="_blank">
-                {response.User.name || response.User.login}
-                <i class="sup"><FaExternalLinkSquareAlt/></i>
-            </a></li>
-            <li>{response.User.blog || ''}</li>
-            <li>{response.User.email || ''}</li>
-            {#if !isOrg}
-            <li title="followers"><i><FaUserCircle/></i> {response.User.followers}</li>
-            <li title="gists"><i><FaBookmark/></i> {response.User.public_gists}</li>
-            {/if}
-            <li title="repositories"><i><FaBook/></i> {response.User.public_repos}</li>
-        </ul>
+    <section>
+        <div class="profile">
+            <img class="avatar" src={response.User.avatar_url} loading="lazy" alt="{response.User.Login}'s photo">
+            <ul>
+                <!--      <li v-if="me && me.IsAdmin">-->
+                <!--        User is <span v-if="response.User.Hide">hidden</span><span v-else>visible</span>.-->
+                <!--        <button @click="toggleHide(!response.User.Hide)">-->
+                <!--          Toggle-->
+                <!--        </button>-->
+                <!--      </li>-->
+                <li><a href="https://github.com/{response.User.login}" target="_blank">
+                    {response.User.name || response.User.login}
+                    <i class="sup"><FaExternalLinkSquareAlt/></i>
+                </a></li>
+                <li>{response.User.blog || ''}</li>
+                <li>{response.User.email || ''}</li>
+                {#if !isOrg}
+                <li title="followers"><i><FaUserCircle/></i> {response.User.followers}</li>
+                <li title="gists"><i><FaBookmark/></i> {response.User.public_gists}</li>
+                {/if}
+                <li title="repositories"><i><FaBook/></i> {response.User.public_repos}</li>
+            </ul>
+        </div>
     </section>
     <section class="code">
         {#each Object.entries(response.Repos) as [lang, info] }

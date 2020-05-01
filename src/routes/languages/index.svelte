@@ -25,9 +25,9 @@
 <style>
   section {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-    grid-gap: 1rem;
-    margin: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-gap: .5rem;
+    margin: .5rem;
   }
   .card {
     display: grid;
@@ -48,8 +48,8 @@
   }
   img {
     object-fit: cover;
-    border-radius: 4px 4px 0 0;
     height: 100%;
+    width: 100%;
   }
   ul {
     display: flex;
