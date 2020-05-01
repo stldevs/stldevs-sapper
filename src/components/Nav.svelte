@@ -16,6 +16,10 @@
   }
 
   @media screen and (max-width: 690px) {
+    #thing {
+      display: none;
+    }
+
     nav {
       display: flex;
       flex-direction: row;
@@ -38,6 +42,10 @@
     h1 {
       padding-left: 1em;
     }
+
+    i {
+      padding-right: 1em;
+    }
   }
 
   #thing {
@@ -52,10 +60,6 @@
     padding: 1em;
     color: black;
     display: flex;
-  }
-
-  i {
-    padding-right: 1em;
   }
 </style>
 
