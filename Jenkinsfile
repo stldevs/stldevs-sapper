@@ -13,9 +13,9 @@ pipeline {
             steps {
                 sh '''
 ssh deploy@stldevs.com << EOF
+  source .bashrc
   cd /opt/stldevs-svelte
   git pull
-  source .bashrc
   nvm use 12
   npm ci
   npm run build
