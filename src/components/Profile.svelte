@@ -12,6 +12,11 @@
     li {
         margin-bottom: .5rem;
     }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+    }
 </style>
 
 <script>
@@ -44,11 +49,16 @@
                 </a></li>
                 <li>{response.User.blog || ''}</li>
                 <li>{response.User.email || ''}</li>
+                <li>{response.User.bio || ''}</li>
+                <li>
+                  <ul class="stats">
                 {#if !isOrg}
-                <li title="followers"><i><FaUserCircle/></i> {response.User.followers}</li>
-                <li title="gists"><i><FaBookmark/></i> {response.User.public_gists}</li>
+                    <li title="followers"><i><FaUserCircle/></i> {response.User.followers}</li>
+                    <li title="gists"><i><FaBookmark/></i> {response.User.public_gists}</li>
                 {/if}
-                <li title="repositories"><i><FaBook/></i> {response.User.public_repos}</li>
+                    <li title="repositories"><i><FaBook/></i> {response.User.public_repos}</li>
+                  </ul>
+                </li>
             </ul>
         </div>
     </section>
