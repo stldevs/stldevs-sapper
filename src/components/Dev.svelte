@@ -64,24 +64,24 @@
             {#if dev.Stars !== undefined}
             <li title="stars">
                 <i><FaStar/></i>
-                <span>{dev.Stars}</span>
+                <span>{dev.Stars.toLocaleString()}</span>
             </li>
             {/if}
             {#if dev.Forks !== undefined}
             <li title="forks">
                 <i><FaCodeBranch/></i>
-                <span>{dev.Forks}</span>
+                <span>{dev.Forks.toLocaleString()}</span>
             </li>
             {/if}
             {#if route === 'developers'}
                 <li title="followers">
                     <i><FaUserCircle/></i>
-                    <span>{dev.Followers}</span>
+                    <span>{dev.Followers.toLocaleString()}</span>
                 </li>
             {/if}
             <li title="repositories">
                 <i><FaBook/></i>
-                <span>{dev.PublicRepos}</span>
+                <span>{dev.PublicRepos.toLocaleString()}</span>
             </li>
         </ul>
     </div>
