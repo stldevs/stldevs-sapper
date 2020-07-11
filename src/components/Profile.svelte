@@ -92,10 +92,10 @@
             </i>{response.User.public_repos.toLocaleString()}</li>
             <li title="total stars"><i>
               <FaStar/>
-            </i>{response.User.Stars.toLocaleString()}</li>
+            </i>{response.User.stars.toLocaleString()}</li>
             <li title="total forks"><i>
               <FaCodeBranch/>
-            </i>{response.User.Forks.toLocaleString()}</li>
+            </i>{response.User.forks.toLocaleString()}</li>
           </ul>
         </li>
       </ul>
