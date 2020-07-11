@@ -60,7 +60,7 @@
             </div>
         {/if}
 
-        {#if me.IsAdmin}
+        {#if me.is_admin}
             <div>You're an admin</div>
         {/if}
 

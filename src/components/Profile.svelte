@@ -139,7 +139,7 @@
           </ul>
         </li>
       </ul>
-  {#if me && me.IsAdmin}
+  {#if me && me.is_admin}
   <div>
     {#if response.User.hide}
       User is hidden
