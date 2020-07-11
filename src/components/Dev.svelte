@@ -60,7 +60,7 @@
                 {dev.name || dev.login}
             </a>
         </h3>
-        <ul class={route === 'organizations' ? 'three-wide' : ''}>
+        <ul class={dev.type !== 'User' ? 'three-wide' : ''}>
             {#if dev.stars !== undefined}
             <li title="stars">
                 <i><FaStar/></i>
