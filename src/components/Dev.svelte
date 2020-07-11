@@ -73,7 +73,7 @@
                 <span>{dev.forks.toLocaleString()}</span>
             </li>
             {/if}
-            {#if route === 'developers'}
+            {#if dev.type === 'User'}
                 <li title="followers">
                     <i><FaUserCircle/></i>
                     <span>{dev.followers.toLocaleString()}</span>
