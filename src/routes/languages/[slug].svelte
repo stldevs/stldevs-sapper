@@ -85,7 +85,9 @@
   <p class="page-of">Page {page} of {pages}</p>
   {#each response.languages as lang}
   <div>
-    <a href="/developers/{lang.Owner}">{lang.Owner}</a> has <b>{lang.Count.toLocaleString()}</b> <i><FaStar/></i> from {slug} repos:
+    <a href={lang.type === 'User' ? `/developers/${lang.Owner}` : `/organizations/${lang.Owner}`}>
+      {lang.name || lang.Owner}
+    </a> has <b>{lang.Count.toLocaleString()}</b> <i><FaStar/></i> from {slug} repos:
     <ul>
       {#each lang.Repos as r}
       <li>
