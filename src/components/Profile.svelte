@@ -15,12 +15,15 @@
   .profile {
     display: grid;
     grid-template-columns: auto 1fr;
-    margin: 0 auto;
   }
 
   .user-info {
     display: grid;
     grid-template-rows: auto auto auto 1fr;
+  }
+
+  .bio {
+    font-weight: lighter;
   }
 
   li {
@@ -33,9 +36,19 @@
 
   .stats li {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
+  }
+
+  @media (max-width: 690px) {
+    .profile {
+      display: flex;
+    }
+    .avatar {
+      margin-bottom: 1rem;
+    }
   }
 </style>
 
@@ -76,7 +89,7 @@
           {#if response.User.email}
             <a href={`mailto:${response.User.email}`}>{response.User.email}</a>
           {/if}
-        <li><em>{response.User.bio || ''}</em></li>
+        <li class="bio">{response.User.bio || ''}</li>
         <li>
           <ul class="stats">
               {#if !isOrg}
