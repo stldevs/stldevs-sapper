@@ -42,7 +42,7 @@
     export let dev;
     export let route;
 
-    $: r = route ? route : dev.Type === 'User' ? 'developers' : 'organizations';
+    $: r = route ? route : dev.type === 'User' ? 'developers' : 'organizations';
 
     import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
