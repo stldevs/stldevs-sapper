@@ -81,18 +81,18 @@
 </svelte:head>
 
 <article>
-  <h3 ref="top">{response.count} {slug} users in St. Louis</h3>
+  <h3 ref="top">{response.count.toLocaleString()} {slug} users in St. Louis</h3>
   <p class="page-of">Page {page} of {pages}</p>
   {#each response.languages as lang}
   <div>
-    <a href="/developers/{lang.Owner}">{lang.Owner}</a> has <b>{lang.Count}</b> <i><FaStar/></i> from {slug} repos:
+    <a href="/developers/{lang.Owner}">{lang.Owner}</a> has <b>{lang.Count.toLocaleString()}</b> <i><FaStar/></i> from {slug} repos:
     <ul>
       {#each lang.Repos as r}
       <li>
         <a href="https://github.com/{lang.Owner}/{r.Name}" target="_blank">
           {r.Name}
         </a>
-        (<b>{r.StargazersCount}</b> <i><FaStar/></i>)
+        (<b>{r.StargazersCount.toLocaleString()}</b> <i><FaStar/></i>)
         <small>{r.Description || '(No description)'}</small>
       </li>
       {/each}

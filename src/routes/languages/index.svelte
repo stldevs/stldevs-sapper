@@ -82,11 +82,11 @@
       <ul>
         <li title="repositories" class="flex-1">
           <i><FaBook/></i>
-          <span>{Count}</span>
+          <span>{Count.toLocaleString()}</span>
         </li>
         <li title="users">
           <i><FaUserCircle/></i>
-          <span>{Users}</span>
+          <span>{Users.toLocaleString()}</span>
         </li>
       </ul>
     </div>
