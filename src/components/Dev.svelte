@@ -51,37 +51,37 @@
 </script>
 
 <div class="card">
-    <a href="/{r}/{dev.Login}">
-        <img src={dev.AvatarURL || dev.AvatarUrl} loading="lazy" alt="{dev.Login}'s photo">
+    <a href="/{r}/{dev.login}">
+        <img src={dev.avatar_url || dev.avatar_url} loading="lazy" alt="{dev.login}'s photo">
     </a>
     <div class="inner">
         <h3>
-            <a href="/{r}/{dev.Login}">
-                {dev.Name || dev.Login}
+            <a href="/{r}/{dev.login}">
+                {dev.name || dev.login}
             </a>
         </h3>
         <ul class={route === 'organizations' ? 'three-wide' : ''}>
-            {#if dev.Stars !== undefined}
+            {#if dev.stars !== undefined}
             <li title="stars">
                 <i><FaStar/></i>
-                <span>{dev.Stars.toLocaleString()}</span>
+                <span>{dev.stars.toLocaleString()}</span>
             </li>
             {/if}
-            {#if dev.Forks !== undefined}
+            {#if dev.forks !== undefined}
             <li title="forks">
                 <i><FaCodeBranch/></i>
-                <span>{dev.Forks.toLocaleString()}</span>
+                <span>{dev.forks.toLocaleString()}</span>
             </li>
             {/if}
             {#if route === 'developers'}
                 <li title="followers">
                     <i><FaUserCircle/></i>
-                    <span>{dev.Followers.toLocaleString()}</span>
+                    <span>{dev.followers.toLocaleString()}</span>
                 </li>
             {/if}
             <li title="repositories">
                 <i><FaBook/></i>
-                <span>{dev.PublicRepos.toLocaleString()}</span>
+                <span>{dev.public_repos.toLocaleString()}</span>
             </li>
         </ul>
     </div>
