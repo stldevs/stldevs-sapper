@@ -78,7 +78,7 @@
   })
 
   function toggleHide(login, val) {
-    fetch(`/stldevs-api/developers/${login}`, {
+    fetch(`/stldevs-api/devs/${login}`, {
       credentials: 'include',
       method: 'PATCH',
       body: JSON.stringify({Hide: val}),
@@ -91,7 +91,7 @@
   }
 
   function delUser(login) {
-    fetch(`/stldevs-api/developers/${login}`, {
+    fetch(`/stldevs-api/devs/${login}`, {
       credentials: 'include',
       method: 'DELETE'
     })
