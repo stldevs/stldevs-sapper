@@ -53,6 +53,8 @@
 </style>
 
 <script>
+  import {onMount} from "svelte";
+
   export let response;
   export let slug;
   export let isOrg = false;
@@ -62,7 +64,38 @@
   import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
   import FaBook from 'svelte-icons/fa/FaBook.svelte'
   import FaBookmark from 'svelte-icons/fa/FaBookmark.svelte'
-  import FaExternalLinkSquareAlt from 'svelte-icons/fa/FaExternalLinkSquareAlt.svelte'
+
+  let me = null;
+
+  onMount(() => {
+    fetch(`/stldevs-api/me`)
+      .then(async r => {
+        if (r.ok) {
+          me = await r.json()
+        }
+      })
+      .catch(e => {})
+  })
+
+  function toggleHide(login, val) {
+    fetch(`/stldevs-api/developers/${login}`, {
+      credentials: 'include',
+      method: 'PATCH',
+      body: JSON.stringify({Hide: val}),
+    })
+    .then(async r => {
+      if (r.ok) {
+        response = await r.json()
+      }
+    })
+  }
+
+  function delUser(login) {
+    fetch(`/stldevs-api/developers/${login}`, {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+  }
 </script>
 
 <article>
@@ -70,12 +103,6 @@
     <div class="profile">
       <img class="avatar" src={response.User.avatar_url} loading="lazy" alt="{response.User.Login}'s photo">
       <ul class="user-info">
-        <!--      <li v-if="me && me.IsAdmin">-->
-        <!--        User is <span v-if="response.User.Hide">hidden</span><span v-else>visible</span>.-->
-        <!--        <button @click="toggleHide(!response.User.Hide)">-->
-        <!--          Toggle-->
-        <!--        </button>-->
-        <!--      </li>-->
         <li><a href="https://github.com/{response.User.login}" target="_blank">
                 {response.User.name || response.User.login}
               <!--                    <i class="sup"><FaExternalLinkSquareAlt/></i>-->
@@ -112,28 +139,43 @@
           </ul>
         </li>
       </ul>
-    </div>
-  </section>
-  <section class="code">
-      {#each Object.entries(response.Repos) as [lang, info] }
-        <h3 id={lang}>{lang}</h3>
-          {#each info as repo}
-            <section class="repo">
-              <header>
-                <h4>
-                    {#if repo.Fork === true}
-                      <i title="is a fork">
-                        <FaCodeBranch/>
-                      </i>
-                    {/if}
-                  <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
-                </h4>
-                <span><i title="stars"><FaStar/></i>{repo.StargazersCount.toLocaleString()}</span>
-                <span><i title="forks"><FaCodeBranch/></i>{repo.ForksCount.toLocaleString()}</span>
-              </header>
-              <em>{repo.Description || ''}</em>
-            </section>
-          {/each}
-      {/each}
-  </section>
+  {#if me && me.IsAdmin}
+  <div>
+    {#if response.User.hide}
+      User is hidden
+    {:else}
+      User is visible
+    {/if}
+    <button on:click={toggleHide(response.User.hide, !response.User.hide)}>
+      Toggle Visibility
+    </button>
+    <button on:click={delUser(response.User.login)}>
+      Delete
+    </button>
+  </div>
+  {/if}
+</div>
+</section>
+<section class="code">
+{#each Object.entries(response.Repos) as [lang, info] }
+  <h3 id={lang}>{lang}</h3>
+    {#each info as repo}
+      <section class="repo">
+        <header>
+          <h4>
+              {#if repo.Fork === true}
+                <i title="is a fork">
+                  <FaCodeBranch/>
+                </i>
+              {/if}
+            <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
+          </h4>
+          <span><i title="stars"><FaStar/></i>{repo.StargazersCount.toLocaleString()}</span>
+          <span><i title="forks"><FaCodeBranch/></i>{repo.ForksCount.toLocaleString()}</span>
+        </header>
+        <em>{repo.Description || ''}</em>
+      </section>
+    {/each}
+{/each}
+</section>
 </article>
