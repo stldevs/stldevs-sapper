@@ -146,7 +146,7 @@
     {:else}
       User is visible
     {/if}
-    <button on:click={toggleHide(response.User.hide, !response.User.hide)}>
+    <button on:click={toggleHide(response.User.login, !response.User.hide)}>
       Toggle Visibility
     </button>
     <button on:click={delUser(response.User.login)}>
