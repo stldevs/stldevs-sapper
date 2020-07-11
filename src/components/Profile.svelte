@@ -45,10 +45,17 @@
                 <!--      </li>-->
                 <li><a href="https://github.com/{response.User.login}" target="_blank">
                     {response.User.name || response.User.login}
-                    <i class="sup"><FaExternalLinkSquareAlt/></i>
+<!--                    <i class="sup"><FaExternalLinkSquareAlt/></i>-->
                 </a></li>
-                <li>{response.User.blog || ''}</li>
-                <li>{response.User.email || ''}</li>
+                <li>
+                    {#if response.User.blog}
+                      <a href={response.User.blog} target="_blank">{response.User.blog}</a>
+                    {/if}
+                </li>
+                <li>
+                    {#if response.User.email}
+                      <a href={`mailto:${response.User.email}`}>{response.User.email}</a>
+                    {/if}
                 <li>{response.User.bio || ''}</li>
                 <li>
                   <ul class="stats">
