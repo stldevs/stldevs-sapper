@@ -1,6 +1,6 @@
 {
   "name": "stldevs",
-  "description": "TODO",
+  "description": "St Louis Developers",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
