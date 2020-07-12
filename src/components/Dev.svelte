@@ -51,12 +51,12 @@
 </script>
 
 <div class="card">
-    <a href="/{r}/{dev.login}">
+    <a href="/{r}/{dev.login}" rel="prefetch">
         <img src={dev.avatar_url || dev.avatar_url} loading="lazy" alt="{dev.login}'s photo">
     </a>
     <div class="inner">
         <h3>
-            <a href="/{r}/{dev.login}">
+            <a href="/{r}/{dev.login}" rel="prefetch">
                 {dev.name || dev.login}
             </a>
         </h3>
