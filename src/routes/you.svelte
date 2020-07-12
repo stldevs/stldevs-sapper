@@ -3,40 +3,43 @@
     import {stores} from '@sapper/app';
     const {session} = stores();
 
+    let session_value = null
+    session.subscribe(value => session_value = value)
+
     async function logout() {
         await fetch(`/stldevs-api/logout`, {credentials: 'include'})
         location.reload()
     }
     async function optOut() {
-        const r = await fetch(`/stldevs-api/devs/${session.me.login}`, {
+        const r = await fetch(`/stldevs-api/devs/${session_value.login}`, {
             credentials: 'include',
             method: 'patch',
             body: JSON.stringify({Hide: true}),
         })
-        session.me = await r.json().User
+        session.set({me: await r.json().User})
     }
     async function optIn() {
-        const r = await fetch(`/stldevs-api/devs/${session.me.login}`, {
+        const r = await fetch(`/stldevs-api/devs/${session_value.login}`, {
             credentials: 'include',
             method: 'patch',
             body: JSON.stringify({Hide: false})
         })
-        session.me = await r.json().User
+        session.set({me: await r.json().User})
     }
 </script>
 
 <Hero title="You"/>
 
 <article>
-    {#if !session.me}
+    {#if !session_value.me}
         <p>You aren't logged in.</p>
 
         <p>You can log in to opt-out of this website.</p>
 
         <a href="/stldevs-api/login">Log in with GitHub</a>
     {:else}
-        Welcome {session.me.name || session.me.login}!
-        {#if !session.me.Hide}
+        Welcome {session_value.me.name || session_value.me.login}!
+        {#if !session_value.me.Hide}
             <div>
                 <p>To opt out of stldevs click here:</p>
                 <button on:click={optOut}>Opt Out</button>
@@ -49,7 +52,7 @@
             </div>
         {/if}
 
-        {#if session.me.is_admin}
+        {#if session_value.me.is_admin}
             <div>You're an admin</div>
         {/if}
 

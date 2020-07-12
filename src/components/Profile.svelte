@@ -62,6 +62,8 @@
   import {stores} from '@sapper/app';
 
   const {session} = stores();
+  let session_value = null
+  session.subscribe(value => session_value = value)
 
   export let response;
   export let slug;
@@ -131,7 +133,7 @@
           </ul>
         </li>
       </ul>
-  {#if session.me && session.me.is_admin}
+  {#if session_value.me && session_value.me.is_admin}
   <div>
     {#if response.User.hide}
       User is hidden

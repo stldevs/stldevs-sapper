@@ -10,12 +10,10 @@
 
   const {preloading, page, session} = stores();
 
-  session.me = null;
-
   onMount(() => {
     fetch(`/stldevs-api/me`).then(async r => {
       if (r.ok) {
-        session.me = await r.json()
+        session.set({me: await r.json()})
       }
     }).catch(e => {})
   })
