@@ -32,11 +32,14 @@
 
 <article>
     {#if !session_value.me}
-        <p>You aren't logged in.</p>
-
-        <p>You can log in to opt-out of this website.</p>
+        <p>You aren't logged in. You can log in to opt-out of this website.</p>
 
         <a href="/stldevs-api/login">Log in with GitHub</a>
+
+        <p>
+          If you'd rather not log in with GitHub, mention me on Twitter and I'll opt you out.
+          <a href="https://twitter.com/nill" target="_blank">@nill</a>
+        </p>
     {:else}
         Welcome {session_value.me.name || session_value.me.login}!
         {#if !session_value.me.Hide}
@@ -53,9 +56,11 @@
         {/if}
 
         {#if session_value.me.is_admin}
-            <div>You're an admin</div>
+            <p>You're an admin</p>
         {/if}
 
-        <button on:click={logout}>Logout</button>
+        <p>
+            <button on:click={logout}>Logout</button>
+        </p>
     {/if}
 </article>
