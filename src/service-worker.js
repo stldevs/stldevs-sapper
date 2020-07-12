@@ -13,8 +13,9 @@ self.addEventListener('install', event => {
 			.open(ASSETS)
 			.then(cache => cache.addAll(to_cache))
 			.then(() => {
-				self.skipWaiting();
+				self.skipWaiting().catch(e => console.error('error skipWaiting', e));
 			})
+			.catch(e => console.error('error installing service worker', e))
 	);
 });
 
@@ -26,7 +27,7 @@ self.addEventListener('activate', event => {
 				if (key !== ASSETS) await caches.delete(key);
 			}
 
-			self.clients.claim();
+			self.clients.claim().catch(e => console.log('error claim', e));
 		})
 	);
 });
@@ -73,7 +74,7 @@ self.addEventListener('fetch', event => {
 			.then(async cache => {
 				try {
 					const response = await fetch(event.request);
-					cache.put(event.request, response.clone());
+					await cache.put(event.request, response.clone());
 					return response;
 				} catch (e) {
 					const response = await cache.match(event.request);

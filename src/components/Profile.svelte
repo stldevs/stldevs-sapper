@@ -53,29 +53,19 @@
 </style>
 
 <script>
-  import {onMount} from "svelte";
-
-  export let response;
-  export let slug;
-  export let isOrg = false;
-
   import FaStar from 'svelte-icons/fa/FaStar.svelte'
   import FaCodeBranch from 'svelte-icons/fa/FaCodeBranch.svelte'
   import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
   import FaBook from 'svelte-icons/fa/FaBook.svelte'
   import FaBookmark from 'svelte-icons/fa/FaBookmark.svelte'
 
-  let me = null;
+  import {stores} from '@sapper/app';
 
-  onMount(() => {
-    fetch(`/stldevs-api/me`)
-      .then(async r => {
-        if (r.ok) {
-          me = await r.json()
-        }
-      })
-      .catch(e => {})
-  })
+  const {session} = stores();
+
+  export let response;
+  export let slug;
+  export let isOrg = false;
 
   function toggleHide(login, val) {
     fetch(`/stldevs-api/devs/${login}`, {
@@ -141,7 +131,7 @@
           </ul>
         </li>
       </ul>
-  {#if me && me.is_admin}
+  {#if session.me && session.me.is_admin}
   <div>
     {#if response.User.hide}
       User is hidden

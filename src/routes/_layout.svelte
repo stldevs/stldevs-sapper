@@ -1,4 +1,6 @@
 <script>
+  import {onMount} from "svelte";
+
   export let segment;
 
   import Nav from '../components/Nav.svelte';
@@ -6,7 +8,17 @@
   import Hero from "../components/Hero.svelte";
   import {stores} from '@sapper/app';
 
-  const {preloading, page} = stores();
+  const {preloading, page, session} = stores();
+
+  session.me = null;
+
+  onMount(() => {
+    fetch(`/stldevs-api/me`).then(async r => {
+      if (r.ok) {
+        session.me = await r.json()
+      }
+    }).catch(e => {})
+  })
 </script>
 
 <style>
