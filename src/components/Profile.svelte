@@ -109,7 +109,9 @@
         </a></li>
         <li>
             {#if response.User.blog}
-              <a href={response.User.blog} target="_blank">{response.User.blog}</a>
+              <a href={response.User.blog.startsWith('http') ? response.User.blog : `http://response.User.blog` } target="_blank">
+                {response.User.blog}
+              </a>
             {/if}
         </li>
         <li>
