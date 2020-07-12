@@ -8,11 +8,12 @@
 
     let url = `/stldevs-api/devs/${slug}`;
     const res = await this.fetch(url);
-    const response = await res.json();
 
     if (!res.ok) {
-      return this.error(res.status, response);
+      return this.error(res.status, await res.json());
     }
+
+    const response = await res.json()
 
     if (session.devs) {
       session.devs[slug] = response
