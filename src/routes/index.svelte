@@ -27,8 +27,8 @@
 		There are over 3,000 developers from St. Louis on Github that have pushed to over 6,000 code repositories.
 	</p>
 	<p>
-		The creator of the sublime-text git plugin is from St. Louis. Another St. Louisan created a JavaScript CMS and
-		yet another made a Dropbox-like sync tool in pure shell script!
+		The author of Ansible for DevOps is from St. Louis. The creator of the sublime-text git plugin is too.
+		Another St. Louisan created a JavaScript CMS and yet another made a Dropbox-like sync tool in pure shell script!
 	</p>
 	<p>
 		We have many talented and driven developers here and this site's goal is to show off our projects to the city

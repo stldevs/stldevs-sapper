@@ -34,7 +34,7 @@
     {#if !session_value.me}
         <p>You aren't logged in. You can log in to opt-out of this website.</p>
 
-        <a href="/stldevs-api/login">Log in with GitHub</a>
+        <a class="button" href="/stldevs-api/login">Log in with GitHub</a>
 
         <p>
           If you'd rather not log in with GitHub, mention me on Twitter and I'll opt you out.
