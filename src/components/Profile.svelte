@@ -46,9 +46,22 @@
     .profile {
       display: flex;
     }
+
     .avatar {
       margin-bottom: 1rem;
     }
+  }
+
+  .admin {
+    margin: 1rem;
+    border: 1px solid red;
+    background: #fc8383;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+  .admin h3 {
+    margin: 0;
+    padding: 0;
   }
 </style>
 
@@ -86,6 +99,8 @@
     fetch(`/stldevs-api/devs/${login}`, {
       credentials: 'include',
       method: 'DELETE'
+    }).then(() => {
+      location.reload()
     })
   }
 </script>
@@ -101,12 +116,13 @@
         </a></li>
         <li>
             {#if response.User.blog}
-              <a href={response.User.blog.startsWith('http') ? response.User.blog : `http://${response.User.blog}` } target="_blank">
-                {response.User.blog}
+              <a href={response.User.blog.startsWith('http') ? response.User.blog : `http://${response.User.blog}` }
+                 target="_blank">
+                  {response.User.blog}
               </a>
             {/if}
         </li>
-        <li>
+      <li>
           {#if response.User.email}
             <a href={`mailto:${response.User.email}`}>{response.User.email}</a>
           {/if}
@@ -133,43 +149,44 @@
           </ul>
         </li>
       </ul>
+    </div>
+  </section>
   {#if session_value.me && session_value.me.is_admin}
-  <div>
-    {#if response.User.hide}
-      User is hidden
-    {:else}
-      User is visible
-    {/if}
-    <button on:click={toggleHide(response.User.login, !response.User.hide)}>
-      Toggle Visibility
-    </button>
-    <button on:click={delUser(response.User.login)}>
-      Delete
-    </button>
-  </div>
+    <aside class="admin">
+      <h3>Admin</h3>
+      {#if response.User.hide}
+        User is hidden
+      {:else}
+        User is visible
+      {/if}
+      <button on:click={toggleHide(response.User.login, !response.User.hide)}>
+        Toggle Visibility
+      </button>
+      <button on:click={delUser(response.User.login)}>
+        Delete User
+      </button>
+    </aside>
   {/if}
-</div>
-</section>
-<section class="code">
-{#each Object.entries(response.Repos) as [lang, info] }
-  <h3 id={lang}>{lang}</h3>
-    {#each info as repo}
-      <section class="repo">
-        <header>
-          <h4>
-              {#if repo.Fork === true}
-                <i title="is a fork">
-                  <FaCodeBranch/>
-                </i>
-              {/if}
-            <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
-          </h4>
-          <span><i title="stars"><FaStar/></i>{repo.StargazersCount.toLocaleString()}</span>
-          <span><i title="forks"><FaCodeBranch/></i>{repo.ForksCount.toLocaleString()}</span>
-        </header>
-        <em>{repo.Description || ''}</em>
-      </section>
-    {/each}
-{/each}
-</section>
+  <section class="code">
+      {#each Object.entries(response.Repos) as [lang, info] }
+        <h3 id={lang}>{lang}</h3>
+          {#each info as repo}
+            <section class="repo">
+              <header>
+                <h4>
+                    {#if repo.Fork === true}
+                      <i title="is a fork">
+                        <FaCodeBranch/>
+                      </i>
+                    {/if}
+                  <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
+                </h4>
+                <span><i title="stars"><FaStar/></i>{repo.StargazersCount.toLocaleString()}</span>
+                <span><i title="forks"><FaCodeBranch/></i>{repo.ForksCount.toLocaleString()}</span>
+              </header>
+              <em>{repo.Description || ''}</em>
+            </section>
+          {/each}
+      {/each}
+  </section>
 </article>
