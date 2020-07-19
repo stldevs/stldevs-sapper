@@ -70,12 +70,12 @@
   {#each response.langs as {Language, Count, Users}}
   <div class="card">
 
-    <a href="/languages/{encodeURIComponent(Language)}" rel="prefetch">
+    <a href="/languages/{encodeURIComponent(Language)}">
       <img src="/langs/{encodeURIComponent(Language)}.svg" loading="lazy" alt="{Language} logo" onerror="this.src = '/langs/Unknown.svg'">
     </a>
     <div class="inner">
       <h3>
-        <a href="/languages/{encodeURIComponent(Language)}" rel="prefetch">
+        <a href="/languages/{encodeURIComponent(Language)}">
           {Language}
         </a>
       </h3>
