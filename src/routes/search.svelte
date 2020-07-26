@@ -96,7 +96,7 @@
     <section>
         <div class="flex">
             <h4 class="flex-1">
-                {repo.Name} (by <a href="/developers/{repo.Owner}">{repo.Owner}</a>)
+                {repo.Name} (by <a href="/developers/{repo.Owner}" rel="prefetch">{repo.Owner}</a>)
             </h4>
             <span><i><FaStar/></i>{repo.StargazersCount} <i><FaCodeBranch/></i> {repo.ForksCount}</span>
         </div>

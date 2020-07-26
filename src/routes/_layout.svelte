@@ -26,9 +26,11 @@
     height: 100%;
   }
   div {
-    width: 200px;
-    height: 200px;
-    margin: auto;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 </style>
 
@@ -40,7 +42,6 @@
   {/if}
   {#if $preloading}
     <div><Spinner/></div>
-  {:else}
-    <slot></slot>
   {/if}
+  <slot></slot>
 </main>
