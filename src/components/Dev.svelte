@@ -18,7 +18,7 @@
         width: 100%
     }
     ul {
-        margin: .5rem 0 0 1.5rem;
+        margin: 0;
         padding-left: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
