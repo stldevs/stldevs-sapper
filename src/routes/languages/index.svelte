@@ -34,7 +34,7 @@
     grid-template-columns: 60px 1fr;
   }
   .inner {
-    padding: .5em .5em .5em .75em;
+    padding: .5rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -53,7 +53,7 @@
   }
   ul {
     display: flex;
-    opacity: .6;
+    color: grey;
   }
   li {
     display: flex;
