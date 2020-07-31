@@ -65,27 +65,27 @@
 
 <nav>
   <h1 id="thing">STL DEVS</h1>
-  <a href="/" aria-current='{segment === undefined ? "page" : undefined}' rel="prefetch">
+  <a href="/" aria-current='{segment === undefined ? "page" : undefined}' rel="prefetch" title="home">
     <i><FaHome/></i>
     <span>Home</span>
   </a>
-  <a href="/languages" aria-current='{segment === "languages" ? "page" : undefined}' rel="prefetch">
+  <a href="/languages" aria-current='{segment === "languages" ? "page" : undefined}' rel="prefetch" title="languages">
     <i><FaCode/></i>
     <span>Languages</span>
   </a>
-  <a href="/developers" aria-current='{segment === "developers" ? "page" : undefined}' rel="prefetch">
+  <a href="/developers" aria-current='{segment === "developers" ? "page" : undefined}' rel="prefetch" title="developers">
     <i><FaUsers/></i>
     <span>Developers</span>
   </a>
-  <a href="/organizations" aria-current='{segment === "organizations" ? "page" : undefined}' rel="prefetch">
+  <a href="/organizations" aria-current='{segment === "organizations" ? "page" : undefined}' rel="prefetch" title="organizations">
     <i><FaSitemap/></i>
     <span>Organizations</span>
   </a>
-  <a href="/search" aria-current='{segment === "search" ? "page" : undefined}' rel="prefetch">
+  <a href="/search" aria-current='{segment === "search" ? "page" : undefined}' rel="prefetch" title="search">
     <i><FaSearch/></i>
     <span>Search</span>
   </a>
-  <a href="/you" aria-current='{segment === "you" ? "page" : undefined}' rel="prefetch">
+  <a href="/you" aria-current='{segment === "you" ? "page" : undefined}' rel="prefetch" title="you">
     <i><FaSmile/></i>
     <span>You</span>
   </a>
