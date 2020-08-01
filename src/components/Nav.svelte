@@ -40,7 +40,9 @@
     }
 
     h1 {
-      padding-left: 1em;
+      margin: 0 0 1rem 1rem;
+      font-size: 35pt;
+      color: rebeccapurple;
     }
 
     i {
@@ -65,6 +67,7 @@
 
 <nav>
   <h1 id="thing">STL DEVS</h1>
+
   <a href="/" aria-current='{segment === undefined ? "page" : undefined}' rel="prefetch" title="home">
     <i><FaHome/></i>
     <span>Home</span>
