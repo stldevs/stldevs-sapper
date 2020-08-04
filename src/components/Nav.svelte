@@ -42,7 +42,6 @@
     h1 {
       margin: 0 0 1rem 1rem;
       font-size: 35pt;
-      color: rebeccapurple;
     }
 
     i {

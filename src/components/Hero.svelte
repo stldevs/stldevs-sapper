@@ -8,8 +8,6 @@
     color: white;
     background: url('/keyboard.jpg');
     background-size: cover;
-
-    box-shadow: inset 0 0 0 1000px rgba(255, 0, 255, .2);
   }
   div {
     position: relative;
