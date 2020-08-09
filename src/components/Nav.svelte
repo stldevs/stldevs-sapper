@@ -10,11 +10,6 @@
 </script>
 
 <style>
-  [aria-current] {
-    font-weight: bold;
-    background: #ececec;
-  }
-
   @media screen and (max-width: 690px) {
     #thing {
       display: none;
@@ -54,12 +49,18 @@
   }
 
   nav {
-    background-color: white;
+    background-color: #00002f;
+    color: #ffffff;
+  }
+
+  [aria-current] {
+    font-weight: bold;
+    background: #000080;
   }
 
   a {
     padding: 1em;
-    color: black;
+    color: #dddddd;
     display: flex;
   }
 </style>

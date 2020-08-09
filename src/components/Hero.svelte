@@ -5,9 +5,10 @@
     text-align: center;
     justify-content: center;
 
-    color: white;
-    background: url('/keyboard.jpg');
-    background-size: cover;
+    /*color: whi;*/
+    /*background: url('/keyboard.jpg');*/
+    /*background-size: cover;*/
+    /*box-shadow: inset 0 0 0 1000px rgba(0,0,255,.2);*/
   }
   div {
     position: relative;
