@@ -21,9 +21,9 @@
 
 <style>
   main {
-    background: #ececec;
+    background: #ececec url("/fleur.svg");
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
   }
   div {
     width: 100px;
