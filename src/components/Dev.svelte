@@ -28,7 +28,8 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: .5rem;
     text-align: center;
-    color: grey;
+    color: #5d5d5d;
+    font-weight: lighter;
     font-size: .85rem;
   }
 

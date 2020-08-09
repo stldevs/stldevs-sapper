@@ -53,7 +53,8 @@
   }
   ul {
     display: flex;
-    color: grey;
+    font-weight: lighter;
+    color: #5d5d5d;
   }
   li {
     display: flex;
