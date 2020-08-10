@@ -5,6 +5,7 @@
 
   section {
     margin-bottom: .75rem;
+    overflow: hidden;
   }
 
   header {
@@ -15,11 +16,6 @@
   .profile {
     display: grid;
     grid-template-columns: auto 1fr;
-  }
-
-  .user-info {
-    display: grid;
-    grid-template-rows: auto auto auto 1fr;
   }
 
   li {
