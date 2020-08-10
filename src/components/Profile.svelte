@@ -22,10 +22,6 @@
     grid-template-rows: auto auto auto 1fr;
   }
 
-  .bio {
-    font-weight: lighter;
-  }
-
   li {
     margin-bottom: .5rem;
   }
@@ -41,7 +37,6 @@
     align-items: center;
     margin-right: 1rem;
     color: #5d5d5d;
-    font-weight: lighter;
   }
 
   @media (max-width: 690px) {

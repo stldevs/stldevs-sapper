@@ -29,7 +29,6 @@
     grid-gap: .5rem;
     text-align: center;
     color: #5d5d5d;
-    font-weight: lighter;
     font-size: .85rem;
   }
 

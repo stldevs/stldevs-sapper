@@ -53,7 +53,6 @@
   }
   ul {
     display: flex;
-    font-weight: lighter;
     color: #5d5d5d;
   }
   li {
