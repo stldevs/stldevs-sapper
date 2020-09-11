@@ -16,6 +16,7 @@
   .profile {
     display: grid;
     grid-template-columns: auto 1fr;
+    padding-bottom: 1rem;
   }
 
   li {
