@@ -19,7 +19,8 @@
   }
 
   li {
-    margin-bottom: .5rem;
+      margin-bottom: 1rem;
+      line-height: 1.1;
   }
 
   .stats {
@@ -46,8 +47,6 @@
   }
 
   .admin {
-    margin: 1rem;
-    border: 1px solid red;
     background: #fc8383;
     border-radius: 5px;
     padding: 1rem;
@@ -55,6 +54,18 @@
   .admin h3 {
     margin: 0;
     padding: 0;
+  }
+
+  fieldset {
+      border: 1px solid black;
+      margin-top: 1rem;
+  }
+
+  span {
+      display: flex;
+      align-items: center;
+      line-height: 1.1;
+      color: #5d5d5d;
   }
 </style>
 
@@ -162,7 +173,8 @@
   {/if}
   <section class="code">
       {#each Object.entries(response.Repos) as [lang, info] }
-        <h3 id={lang}>{lang}</h3>
+        <fieldset>
+          <legend id={lang}>{lang}</legend>
           {#each info as repo}
             <section class="repo">
               <header>
@@ -174,12 +186,17 @@
                     {/if}
                   <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
                 </h4>
-                <span><i title="stars"><FaStar/></i>{repo.StargazersCount.toLocaleString()}</span>
-                <span><i title="forks"><FaCodeBranch/></i>{repo.ForksCount.toLocaleString()}</span>
+                <span>
+                  <i title="stars"><FaStar/></i>&nbsp;{repo.StargazersCount.toLocaleString()}
+                </span>
+                <span>
+                  <i title="forks"><FaCodeBranch/></i>&nbsp;{repo.ForksCount.toLocaleString()}
+                </span>
               </header>
               <em>{repo.Description || ''}</em>
             </section>
           {/each}
+        </fieldset>
       {/each}
   </section>
 </article>
