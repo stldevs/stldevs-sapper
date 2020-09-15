@@ -74,7 +74,9 @@ self.addEventListener('fetch', event => {
 			.then(async cache => {
 				try {
 					const response = await fetch(event.request);
-					await cache.put(event.request, response.clone());
+					cache.put(event.request, response.clone()).catch(e => {
+						// eat "DOMException: Quota exceeded."
+					});
 					return response;
 				} catch (e) {
 					const response = await cache.match(event.request);
