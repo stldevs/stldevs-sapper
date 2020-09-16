@@ -10,13 +10,20 @@
 
   header {
     display: grid;
-    grid-template-columns: 1fr 5rem 5rem;
+    grid-template-columns: 1fr auto auto;
+    grid-gap: .5rem;
+  }
+
+  h4 {
+      white-space: nowrap;
+      overflow: hidden;
   }
 
   .profile {
     display: grid;
     grid-template-columns: auto 1fr;
     padding-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   li {
@@ -37,14 +44,28 @@
     color: #5d5d5d;
   }
 
-  @media (max-width: 690px) {
-    .profile {
+  .avatar {
+      height: 200px;
+      border-radius: 5px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      transition: all 0.6s cubic-bezier(.25,.8,.25,1);
+      margin: 0 1rem 1rem;
+  }
+  .avatar:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.22), 0 6px 12px rgba(0,0,0,0.26);
+  }
+  .profile {
       display: flex;
-    }
-
-    .avatar {
-      margin-bottom: 1rem;
-    }
+      gap: 1rem;
+  }
+  @media screen and (max-width: 690px) {
+      .profile {
+          flex-direction: column;
+          align-items: center;
+      }
+      .avatar {
+          width: 200px;
+      }
   }
 
   .admin {
