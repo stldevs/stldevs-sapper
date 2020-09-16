@@ -9,13 +9,11 @@ const cached = new Set(to_cache);
 
 self.addEventListener('install', event => {
 	event.waitUntil(
-		caches
-			.open(ASSETS)
-			.then(cache => cache.addAll(to_cache))
-			.then(() => {
-				self.skipWaiting().catch(e => console.error('error skipWaiting', e));
-			})
-			.catch(e => console.error('error installing service worker', e))
+		async () => {
+			const cache = await caches.open(ASSETS)
+			await cache.addAll(to_cache)
+			self.skipWaiting().catch(e => console.error('error skipWaiting', e));
+		}
 	);
 });
 
