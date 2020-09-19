@@ -19,8 +19,8 @@
   }
 
   .profile {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    gap: 1rem;
     padding-bottom: 1rem;
     margin-top: 1rem;
   }
@@ -32,15 +32,19 @@
 
   .stats {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .stats li {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
     color: #5d5d5d;
+  }
+
+  .stats i {
+      margin-right: 3px;
   }
 
   .avatar {
@@ -52,11 +56,6 @@
   }
   .avatar:hover {
       box-shadow: 0 6px 12px rgba(0,0,0,0.22), 0 6px 12px rgba(0,0,0,0.26);
-  }
-  .profile {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
   }
   @media screen and (max-width: 690px) {
       .profile {
