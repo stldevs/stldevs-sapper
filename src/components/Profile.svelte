@@ -5,7 +5,6 @@
 
   section {
     margin-bottom: .75rem;
-    overflow: hidden;
   }
 
   header {
@@ -88,6 +87,10 @@
       align-items: center;
       line-height: 1.1;
       color: #5d5d5d;
+  }
+
+  em {
+      overflow-wrap: anywhere;
   }
 </style>
 
