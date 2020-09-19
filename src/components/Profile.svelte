@@ -55,6 +55,7 @@
   }
   .profile {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
   }
   @media screen and (max-width: 690px) {
@@ -65,6 +66,9 @@
       .avatar {
           width: 200px;
       }
+  }
+  .user-info {
+      overflow-wrap: anywhere;
   }
 
   .admin {
