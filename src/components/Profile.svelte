@@ -1,27 +1,7 @@
 <style>
-  h4 {
-    margin: 0;
-  }
-
-  section {
-    margin-bottom: .75rem;
-  }
-
-  header {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    grid-gap: .5rem;
-  }
-
-  h4 {
-      white-space: nowrap;
-      overflow: hidden;
-  }
-
   .profile {
     display: flex;
     gap: 1rem;
-    padding-bottom: 1rem;
     margin-top: 1rem;
   }
 
@@ -70,6 +50,9 @@
       overflow-wrap: anywhere;
   }
 
+  aside {
+      margin-bottom: 1.5rem;
+  }
   .admin {
     background: #fc8383;
     border-radius: 5px;
@@ -79,22 +62,6 @@
     margin: 0;
     padding: 0;
   }
-
-  fieldset {
-      border: 1px solid black;
-      margin-top: 1rem;
-  }
-
-  span {
-      display: flex;
-      align-items: center;
-      line-height: 1.1;
-      color: #5d5d5d;
-  }
-
-  em {
-      overflow-wrap: anywhere;
-  }
 </style>
 
 <script>
@@ -103,8 +70,11 @@
   import FaUserCircle from 'svelte-icons/fa/FaUserCircle.svelte'
   import FaBook from 'svelte-icons/fa/FaBook.svelte'
   import FaBookmark from 'svelte-icons/fa/FaBookmark.svelte'
+  import FaCheckSquare from 'svelte-icons/fa/FaRegCheckSquare.svelte'
+  import FaSquare from 'svelte-icons/fa/FaRegSquare.svelte'
 
   import {stores} from '@sapper/app';
+  import Repos from "./Repos.svelte";
 
   const {session} = stores();
   let session_value = null
@@ -135,6 +105,8 @@
       location.reload()
     })
   }
+
+  let hideUnstarred = true
 </script>
 
 <article>
@@ -199,32 +171,21 @@
       </button>
     </aside>
   {/if}
+
+  <aside class="flex gap">
+    <button on:click={() => hideUnstarred = !hideUnstarred} class="flex gap align-center">
+      {#if hideUnstarred}
+        <i><FaCheckSquare/></i>
+      {:else}
+        <i><FaSquare/></i>
+      {/if}
+      <span>Hide 0<i><FaStar/></i> 0<i><FaCodeBranch/></i></span>
+    </button>
+  </aside>
+
   <section class="code">
-      {#each Object.entries(response.Repos) as [lang, info] }
-        <fieldset>
-          <legend id={lang}>{lang}</legend>
-          {#each info as repo}
-            <section class="repo">
-              <header>
-                <h4>
-                    {#if repo.Fork === true}
-                      <i title="is a fork">
-                        <FaCodeBranch/>
-                      </i>
-                    {/if}
-                  <a href="https://github.com/{slug}/{repo.Name}" target="_blank">{repo.Name}</a>
-                </h4>
-                <span>
-                  <i title="stars"><FaStar/></i>&nbsp;{repo.StargazersCount.toLocaleString()}
-                </span>
-                <span>
-                  <i title="forks"><FaCodeBranch/></i>&nbsp;{repo.ForksCount.toLocaleString()}
-                </span>
-              </header>
-              <em>{repo.Description || ''}</em>
-            </section>
-          {/each}
-        </fieldset>
+      {#each Object.entries(response.Repos) as [lang, repos] }
+        <Repos {slug} {lang} {repos} {hideUnstarred}/>
       {/each}
   </section>
 </article>

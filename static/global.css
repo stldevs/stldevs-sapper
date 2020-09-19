@@ -33,6 +33,10 @@ a {
 	text-decoration: none;
 }
 
+a:hover {
+	text-decoration: underline;
+}
+
 article {
 	background: white;
 	padding: 1em;
@@ -102,6 +106,12 @@ ul {
 }
 .flex-1 {
 	flex: 1;
+}
+.gap {
+	gap: .5rem;
+}
+.align-center {
+	align-items: center;
 }
 .nowrap {
 	white-space: nowrap;
