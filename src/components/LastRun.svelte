@@ -9,7 +9,7 @@
     if ($session.lastRun) {
       return
     }
-    fetch('/stldevs-api/last-run').then(async r => {
+    fetch('/stldevs-api/runs').then(async r => {
       const lastRun = await r.json();
       if (!r.ok) {
         return
