@@ -14,13 +14,11 @@
 
         let url1 = `/stldevs-api/devs?q=${encodeURIComponent(q)}`;
         const p = this.fetch(url1).then(async function(res){
-            const response = await res.json();
-            return response.results;
+            return await res.json();
         });
         let url2 = `/stldevs-api/repos?q=${encodeURIComponent(q)}`;
         repos = await this.fetch(url2).then(async function(res) {
-            const response = await res.json();
-            return response.results;
+            return await res.json();
         });
         users = await p;
 
