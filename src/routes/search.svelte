@@ -12,14 +12,12 @@
             return { users: session.search[q].users, repos: session.search[q].repos, q};
         }
 
-        // Why 2 different queries? in the old site one query was much faster so
-        // it showed results sooner. Here that is not the case yet since it's SSR.
-        let url1 = `/stldevs-api/search?type=users&q=${encodeURIComponent(q)}`;
+        let url1 = `/stldevs-api/users?q=${encodeURIComponent(q)}`;
         const p = this.fetch(url1).then(async function(res){
             const response = await res.json();
             return response.results;
         });
-        let url2 = `/stldevs-api/search?type=repos&q=${encodeURIComponent(q)}`;
+        let url2 = `/stldevs-api/repos?q=${encodeURIComponent(q)}`;
         repos = await this.fetch(url2).then(async function(res) {
             const response = await res.json();
             return response.results;
