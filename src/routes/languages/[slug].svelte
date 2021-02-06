@@ -9,7 +9,7 @@
       return { response: session.langs[slug+p], slug, p};
     }
 
-    let url = `/stldevs-api/lang/${encodeURIComponent(slug)}`;
+    let url = `/stldevs-api/langs/${encodeURIComponent(slug)}`;
     if (p) {
       url += `?offset=${p*25}&limit=25`
     }
@@ -24,7 +24,7 @@
       session.langs[slug + p] = response
     } else {
       const key = slug + p;
-      session.langs = {key: response}
+      session.langs = {[key]: response}
     }
 
     return { response, slug, p };

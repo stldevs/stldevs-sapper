@@ -3,7 +3,7 @@
     if (session.toplangs) {
       return {response: session.toplangs}
     }
-    const r = await this.fetch('/stldevs-api/toplangs');
+    const r = await this.fetch('/stldevs-api/langs');
     const response = await r.json();
     session.toplangs = response;
     return {response};
@@ -67,7 +67,7 @@
 <Hero title="Top Languages in St. Louis" lastrun="true"/>
 
 <section>
-  {#each response.langs as {Language, Count, Users}}
+  {#each response as {Language, Count, Users}}
   <div class="card">
 
     <a href="/languages/{encodeURIComponent(Language)}" rel="prefetch">
