@@ -12,7 +12,7 @@
             return { users: session.search[q].users, repos: session.search[q].repos, q};
         }
 
-        let url1 = `/stldevs-api/users?q=${encodeURIComponent(q)}`;
+        let url1 = `/stldevs-api/devs?q=${encodeURIComponent(q)}`;
         const p = this.fetch(url1).then(async function(res){
             const response = await res.json();
             return response.results;
