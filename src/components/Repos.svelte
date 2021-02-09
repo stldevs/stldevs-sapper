@@ -7,12 +7,13 @@
   export let repos=[]
   export let hideUnstarred=true
 
+  $: language = lang || 'No Language'
   $: filteredRepos = !hideUnstarred ? repos : repos.filter(repo => repo.StargazersCount || repo.ForksCount)
 </script>
 
 {#if filteredRepos.length > 0 }
 <fieldset>
-  <legend id={lang}>{lang}</legend>
+  <legend id={language}>{language}</legend>
   {#each filteredRepos as repo}
     <section class="repo">
       <header>
