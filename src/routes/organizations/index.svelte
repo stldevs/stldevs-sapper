@@ -3,7 +3,7 @@
     if (session.toporgs) {
       return {response: session.toporgs}
     }
-    const r = await this.fetch('/stldevs-api/orgs');
+    const r = await this.fetch('/stldevs-api/devs?type=Organization');
     const response = await r.json();
     session.toporgs = response;
     return {response};

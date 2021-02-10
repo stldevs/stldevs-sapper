@@ -6,7 +6,7 @@
       return { response: session.devs[slug], slug};
     }
 
-    let url = `/stldevs-api/orgs/${slug}`;
+    let url = `/stldevs-api/devs/${slug}`;
     const res = await this.fetch(url);
     const response = await res.json();
 

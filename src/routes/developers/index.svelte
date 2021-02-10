@@ -3,7 +3,7 @@
     if (session.topdevs) {
       return {response: session.topdevs}
     }
-    const r = await this.fetch('/stldevs-api/devs');
+    const r = await this.fetch('/stldevs-api/devs?type=User');
     const response = await r.json();
     session.topdevs = response;
     return {response};
