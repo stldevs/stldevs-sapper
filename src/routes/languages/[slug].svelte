@@ -61,7 +61,7 @@
   let offset = page * pageSize;
 
   $: pages = Math.ceil(response.count / pageSize)-1;
-  $: morePages = page+1 < pages;
+  $: morePages = page+1 <= pages;
 
   async function next() {
     page++;
