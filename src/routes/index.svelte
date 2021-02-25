@@ -41,4 +41,8 @@
 		Contributions are welcome to <a href="http://github.com/jakecoffman/stldevs">the API</a> or <a
 			href="https://github.com/jakecoffman/stldevs-sapper">the UI</a>! Filing issues is the easiest way to contribute.
 	</p>
+
+	<p>
+		The API documentation can be found here: <a href="https://stldevs.com/stldevs-api/">https://stldevs.com/stldevs-api/</a>.
+	</p>
 </article>
