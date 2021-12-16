@@ -16,7 +16,11 @@
             method: 'PATCH',
             body: JSON.stringify({Hide: true}),
         })
-        session.set({me: await r.json().User})
+        if (!r.ok) {
+            return alert(await r.text())
+        }
+        const profile = await r.json()
+        session.set({me: profile.User})
     }
     async function optIn() {
         const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
@@ -24,7 +28,11 @@
             method: 'PATCH',
             body: JSON.stringify({Hide: false})
         })
-        session.set({me: await r.json().User})
+        if (!r.ok) {
+            return alert(await r.text())
+        }
+        const profile = await r.json()
+        session.set({me: profile.User})
     }
 </script>
 
