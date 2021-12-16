@@ -11,7 +11,7 @@
         location.reload()
     }
     async function optOut() {
-        const r = await fetch(`/stldevs-api/devs/${session_value.login}`, {
+        const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
             credentials: 'include',
             method: 'patch',
             body: JSON.stringify({Hide: true}),
@@ -19,7 +19,7 @@
         session.set({me: await r.json().User})
     }
     async function optIn() {
-        const r = await fetch(`/stldevs-api/devs/${session_value.login}`, {
+        const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
             credentials: 'include',
             method: 'patch',
             body: JSON.stringify({Hide: false})
