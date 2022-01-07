@@ -14,6 +14,7 @@
         const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
             credentials: 'include',
             method: 'PATCH',
+            headers: {'content-type': 'application/json'},
             body: JSON.stringify({Hide: true}),
         })
         if (!r.ok) {
@@ -26,6 +27,7 @@
         const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
             credentials: 'include',
             method: 'PATCH',
+            headers: {'content-type': 'application/json'},
             body: JSON.stringify({Hide: false})
         })
         if (!r.ok) {

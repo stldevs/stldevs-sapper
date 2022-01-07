@@ -88,6 +88,7 @@
     fetch(`/stldevs-api/devs/${login}`, {
       credentials: 'include',
       method: 'PATCH',
+      headers: {'content-type': 'application/json'},
       body: JSON.stringify({Hide: val}),
     })
     .then(async r => {
