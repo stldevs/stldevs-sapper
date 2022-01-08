@@ -3,15 +3,12 @@
     import {stores} from '@sapper/app';
     const {session} = stores();
 
-    let session_value = null
-    session.subscribe(value => session_value = value)
-
     async function logout() {
         await fetch(`/stldevs-api/logout`, {credentials: 'include'})
         location.reload()
     }
     async function optOut() {
-        const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
+        const r = await fetch(`/stldevs-api/me`, {
             credentials: 'include',
             method: 'PATCH',
             headers: {'content-type': 'application/json'},
@@ -21,10 +18,10 @@
             return alert(await r.text())
         }
         const profile = await r.json()
-        session.set({me: profile.User})
+        session.set({me: profile})
     }
     async function optIn() {
-        const r = await fetch(`/stldevs-api/devs/${session_value.me.login}`, {
+        const r = await fetch(`/stldevs-api/me`, {
             credentials: 'include',
             method: 'PATCH',
             headers: {'content-type': 'application/json'},
@@ -34,14 +31,14 @@
             return alert(await r.text())
         }
         const profile = await r.json()
-        session.set({me: profile.User})
+        session.set({me: profile})
     }
 </script>
 
 <Hero title="You"/>
 
 <article>
-    {#if !session_value.me}
+    {#if !$session.me}
         <p>You aren't logged in. You can log in to opt-out of this website.</p>
 
         <a class="button" href="/stldevs-api/login">Log in with GitHub</a>
@@ -51,8 +48,8 @@
           <a href="https://twitter.com/nill" target="_blank">@nill</a>
         </p>
     {:else}
-        Welcome {session_value.me.name || session_value.me.login}!
-        {#if !session_value.me.Hide}
+        Welcome {$session.me.name || $session.me.login}!
+        {#if !$session.me.hide}
             <div>
                 <p>To opt out of stldevs click here:</p>
                 <button on:click={optOut}>Opt Out</button>
@@ -65,7 +62,7 @@
             </div>
         {/if}
 
-        {#if session_value.me.is_admin}
+        {#if $session.me.is_admin}
             <p>You're an admin</p>
         {/if}
 

@@ -77,8 +77,6 @@
   import Repos from "./Repos.svelte";
 
   const {session} = stores();
-  let session_value = null
-  session.subscribe(value => session_value = value)
 
   export let response;
   export let slug;
@@ -156,7 +154,7 @@
       </ul>
     </div>
   </section>
-  {#if session_value.me && session_value.me.is_admin}
+  {#if $session.me && $session.me.is_admin}
     <aside class="admin">
       <h3>Admin</h3>
       {#if response.User.hide}

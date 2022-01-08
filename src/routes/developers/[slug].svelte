@@ -35,4 +35,4 @@
   <title>STL Devs | {slug}</title>
 </svelte:head>
 
-<Profile {response} {slug}/>
+<Profile bind:response={response} {slug}/>

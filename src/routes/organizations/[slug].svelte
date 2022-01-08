@@ -34,4 +34,4 @@
   <title>STL Devs | {slug}</title>
 </svelte:head>
 
-<Profile {response} {slug} isOrg="{true}"/>
+<Profile bind:response={response} {slug} isOrg="{true}"/>
