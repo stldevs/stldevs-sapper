@@ -9,6 +9,13 @@ const dev = NODE_ENV === 'development';
 
 const server = polka();
 
+// server.use(createProxyMiddleware('/stldevs-api', {
+// 	changeOrigin: true,
+// 	logLevel: 'debug',
+// 	target: 'http://127.0.0.1:8080',
+// 	pathRewrite: path => path.replace('/stldevs-api', '')
+// }));
+
 server.use(createProxyMiddleware('/stldevs-api', {
 	changeOrigin: true,
 	logLevel: 'debug',
