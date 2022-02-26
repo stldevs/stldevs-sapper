@@ -19,3 +19,27 @@ jobs:
           node-version: 13
       - run: npm ci
       - run: npm run build
+
+      - name: Deploy
+        uses: appleboy/scp-action@master
+        with:
+          host: stldevs.com
+          username: deploy
+          key: ${{ secrets.KEY }}
+          port: 22
+          source: "__sapper__/build"
+          target: "~"
+
+      - name: Restart
+        uses: appleboy/ssh-action@master
+        with:
+          host: stldevs.com
+          username: deploy
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            sudo service stldevs-svelte stop
+            rm -r /opt/stldevs-svelte/*
+            mv build/* /opt/stldevs-svelte
+            rmdir build
+            sudo service stldevs-svelte start
