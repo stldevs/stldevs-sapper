@@ -40,6 +40,5 @@ jobs:
           script: |
             sudo service stldevs-svelte stop
             rm -r /opt/stldevs-svelte/*
-            mv build/* /opt/stldevs-svelte
-            rmdir build
+            mv __sapper__/build/* /opt/stldevs-svelte
             sudo service stldevs-svelte start
