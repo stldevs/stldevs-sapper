@@ -22,6 +22,7 @@ jobs:
 
       - name: Deploy
         uses: appleboy/ssh-action@master
+        if: github.event_name != 'pull_request'
         with:
           host: stldevs.com
           username: deploy
