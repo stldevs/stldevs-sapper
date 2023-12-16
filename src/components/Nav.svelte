@@ -21,7 +21,7 @@
       justify-content: center;
     }
 
-    h1, span {
+    span {
       display: none;
     }
   }
@@ -34,22 +34,13 @@
       height: 100%;
     }
 
-    h1 {
-      margin: 0 0 1rem 1rem;
-      font-size: 35pt;
-    }
-
     i {
       padding-right: 1em;
     }
   }
 
-  #thing {
-    font-variant-caps: all-small-caps;
-  }
-
   nav {
-    background-color: #00002f;
+    background-color: #0B1B3F;
     color: #ffffff;
   }
 
@@ -66,7 +57,7 @@
 </style>
 
 <nav>
-  <h1 id="thing">STL DEVS</h1>
+  <img id="thing" src="/stldevs.jpeg" alt="stldevs logo" style="object-fit: cover"/>
 
   <a href="/" aria-current='{segment === undefined ? "page" : undefined}' rel="prefetch" title="home">
     <i><FaHome/></i>
