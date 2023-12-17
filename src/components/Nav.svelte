@@ -15,6 +15,19 @@
       display: none;
     }
 
+    #lil-logo {
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    #lil-logo > a {
+      padding: 0;
+    }
+
     nav {
       display: flex;
       flex-direction: row;
@@ -27,6 +40,10 @@
   }
 
   @media screen and (min-width: 691px) {
+    #lil-logo {
+      display: none;
+    }
+
     nav {
       display: flex;
       flex-direction: column;
@@ -55,6 +72,12 @@
     display: flex;
   }
 </style>
+
+<div id="lil-logo">
+  <a href="/">
+      <img src="/stldevs.jpeg" alt="stldevs logo" style="object-fit: cover" height="50" width="50"/>
+  </a>
+</div>
 
 <nav>
   <img id="thing" src="/stldevs.jpeg" alt="stldevs logo" style="object-fit: cover"/>
